@@ -13,7 +13,7 @@ const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <div className="relative z-50">
+    <div className="relative z-50 bg-white shadow">
       <div className="container mx-auto">
         <div className="flex flex-col items-start py-4 space-y-4">
           <div className="flex flex-col lg:flex-row w-full">

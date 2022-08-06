@@ -19,7 +19,7 @@ const SellingAndSalesProducts = ({ products }) => {
                 <div className="w-full flex flex-col mt-2 p-2">
                   <div className="flex justify-between">
                     <p className="text-neutral-700 font-bold">
-                      {item.default_variant.price.selling_price}
+                      {item.default_variant.price.selling_price.toLocaleString() + " ریال"}
                     </p>
                     {item.default_variant.price.discount_percent > 0 && (
                       <span className="bg-rose-600 flex items-center rounded-full px-2 text-xs text-white font-bold">
@@ -29,7 +29,7 @@ const SellingAndSalesProducts = ({ products }) => {
                   </div>
                   {item.default_variant.price.discount_percent > 0 && (
                     <span className="text-gray-500 text-sm line-through">
-                      {item.default_variant.price.rrp_price}
+                      {item.default_variant.price.rrp_price.toLocaleString() + " ریال"}
                     </span>
                   )}
                 </div>

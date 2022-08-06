@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import Image from "next/image";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -9,7 +9,7 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Navigation } from "swiper";
-import Image from "next/image";
+
 
 
 const PopularBrands = ({ brands }) => {
