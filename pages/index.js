@@ -1,8 +1,3 @@
-import { useEffect } from "react";
-
-import { useDispatch } from "react-redux";
-import { homeData } from "../store/slice/homeSlice";
-
 import Header from "../components/home/header";
 import DeepLinks from "../components/home/deepLinks";
 import IncredibleProducts from "../components/home/incredibleProducts";
@@ -17,17 +12,13 @@ import SellingAndSalesProducts from "../components/home/sellingAndSalesProducts"
 import FreshOffer from "../components/home/freshOffer";
 
 export default function Home({ data }) {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(homeData(data));
-  }, []); // eslint-disable-line
+  // eslint-disable-line
 
   return (
     <>
       <Header sliderItem={data.data.header_banners} />
       <div className="xl:container xl:mx-auto px-4 xl:px-28">
-        <DeepLinks />
+        <DeepLinks links={data.data.deep_links} />
         <IncredibleProducts
           suggestedProducts={data.data.incredible_products.products}
           image={
@@ -35,16 +26,20 @@ export default function Home({ data }) {
           }
           color={"bg-rose-600"}
         />
-        <FreshOffer />
+        <FreshOffer offer={data.data.data.fresh_incredible_products} />
         <TopBanners topBanners={data.data.top_banners} />
-        <MainCategories categories={data.data.main_categories.categories}/>
+        <MainCategories categories={data.data.main_categories.categories} />
         <MiddleBanners banners={data.data.middle_banners} />
-        <RecommendationSubCategories categories={data.data.recommendation_sub_categories} />
+        <RecommendationSubCategories
+          categories={data.data.recommendation_sub_categories}
+        />
         <PopularBrands brands={data.data.popular_brands.brands} />
         <MiddleBanners banners={data.data.middle_banners_third} />
-        <DigiPlus />
+        <DigiPlus product={data.data.digiplus.jet_delivery_products.products} />
         <BestSelling products={data.data.best_selling_products.products} />
-        <SellingAndSalesProducts products={data.data.selling_and_sales_products.products} />
+        <SellingAndSalesProducts
+          products={data.data.selling_and_sales_products.products}
+        />
       </div>
     </>
   );

@@ -1,12 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { useSelector } from "react-redux";
 
-const DigiPlus = () => {
-  const product = useSelector(
-    (state) => state.home.homeData.data?.digiplus.jet_delivery_products.products
-  );
+const DigiPlus = ({product}) => {
   return (
     <div className="flex flex-wrap bg-fuchsia-700 rounded-3xl p-4 md:p-8 mt-8">
       <div

@@ -1,15 +1,9 @@
 import Image from "next/image";
-
-import { useSelector } from "react-redux";
-
-import { ArrowLeftIcon } from "@heroicons/react/outline";
 import Link from "next/link";
 
-const FreshOffer = () => {
-  const offer = useSelector(
-    (state) => state.home.homeData.data?.fresh_incredible_products
-  );
+import { ArrowLeftIcon } from "@heroicons/react/outline";
 
+const FreshOffer = ({ offer }) => {
   return (
     <div className="w-full flex flex-col md:flex-row rounded-3xl bg-green-100 shadow p-4 mt-4">
       <div className="flex items-center justify-evenly md:w-2/5">
@@ -32,10 +26,7 @@ const FreshOffer = () => {
       <div className="flex flex-wrap justify-center items-center w-full md:w-3/5 ">
         {offer?.products.slice(0, 3).map((item) => {
           return (
-            <Link
-              href={item.url.uri}
-              key={item.id}
-            >
+            <Link href={item.url.uri} key={item.id}>
               <a className="flex flex-col my-4 px-2 space-y-2">
                 <div className="flex relative items-center justify-center p-2 bg-white rounded-full">
                   <Image

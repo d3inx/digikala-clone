@@ -1,10 +1,8 @@
 import Image from "next/image";
-import { useSelector } from "react-redux";
 
 
 
-const DeepLinks = () => {
-  const links = useSelector((state) => state.home.homeData.data?.deep_links);
+const DeepLinks = ({links}) => {
   return (
     <div className="flex flex-wrap mt-8">
       {links?.map((item) => {
