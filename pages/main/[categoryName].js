@@ -9,8 +9,6 @@ import TopBanners from "../../components/home/topBanners";
 import Header from "./../../components/home/header";
 
 const categoryPage = ({ data }) => {
-  console.log(data);
-
   return (
     <div className="xl:container xl:mx-auto px-4 xl:px-28">
         <Header sliderItem={data.data.slider_banners} />
