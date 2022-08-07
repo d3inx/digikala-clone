@@ -34,11 +34,14 @@ const BestSelling = ({ products  })=>{
                         children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
                             className: "flex items-center md:w-1/4 px-4 my-4",
                             children: [
-                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
-                                    src: item.images.main.url[0],
-                                    alt: item.title_fa,
-                                    width: 96,
-                                    height: 96
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                                    className: "min-w-fit",
+                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_1___default()), {
+                                        src: item.images.main.url[0],
+                                        alt: item.title_fa,
+                                        width: 100,
+                                        height: 100
+                                    })
                                 }),
                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
                                     className: "text-xl text-cyan-500 font-bold px-4",

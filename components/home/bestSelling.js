@@ -10,12 +10,14 @@ const BestSelling = ({ products }) => {
           return (
             <Link href={item.url.uri} key={item.id}>
               <a className="flex items-center md:w-1/4 px-4 my-4">
-                <img
-                  src={item.images.main.url[0]}
-                  alt={item.title_fa}
-                  width={96}
-                  height={96}
-                />
+                <div className="min-w-fit">
+                  <Image
+                    src={item.images.main.url[0]}
+                    alt={item.title_fa}
+                    width={100}
+                    height={100}
+                  />
+                </div>
                 <span className="text-xl text-cyan-500 font-bold px-4">
                   {index + 1}
                 </span>
