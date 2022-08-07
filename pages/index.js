@@ -26,7 +26,7 @@ export default function Home({ data }) {
           }
           color={"bg-rose-600"}
         />
-        <FreshOffer offer={data.data.data.fresh_incredible_products} />
+        <FreshOffer offer={data.data.fresh_incredible_products} />
         <TopBanners topBanners={data.data.top_banners} />
         <MainCategories categories={data.data.main_categories.categories} />
         <MiddleBanners banners={data.data.middle_banners} />

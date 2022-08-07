@@ -266,7 +266,7 @@ function Home({ data  }) {
                         color: "bg-rose-600"
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_home_freshOffer__WEBPACK_IMPORTED_MODULE_12__/* ["default"] */ .Z, {
-                        offer: data.data.data.fresh_incredible_products
+                        offer: data.data.fresh_incredible_products
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_home_topBanners__WEBPACK_IMPORTED_MODULE_4__/* ["default"] */ .Z, {
                         topBanners: data.data.top_banners
