@@ -1,7 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-
 const MainCategories = ({ categories, childCategory }) => {
   return (
     <>
@@ -12,7 +11,6 @@ const MainCategories = ({ categories, childCategory }) => {
             <Link href={item.url.uri} key={item.id}>
               <a className="w-1/3 md:w-1/5 p-4 md:p-10" key={item.id}>
                 <Image
-                  
                   src={
                     !childCategory ? item.logo.url[0] : item.top_product_image
                   }

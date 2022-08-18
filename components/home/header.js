@@ -31,7 +31,7 @@ const Header = ({sliderItem}) => {
         {sliderItem?.map((item) => {
             return (
                 <SwiperSlide className="w-full aspect-[4/2] lg:aspect-[4/1]" key={item.id}>
-                    <Image  src={item.image} alt={item.title}  layout='fill' className='object-cover' />
+                    <Image  src={item.image} alt={item.title} layout='fill' className='object-cover' priority />
                 </SwiperSlide>
             );
         }

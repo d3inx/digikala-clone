@@ -22,15 +22,17 @@ const DeepLinks = ({ links  })=>{
         className: "flex flex-wrap mt-8",
         children: links?.map((item)=>{
             return /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                className: "flex flex-col w-1/4 md:w-1/6 my-4 space-y-2",
+                className: "flex flex-col items-center w-1/4 md:w-1/6 my-4 space-y-2",
                 children: [
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                        className: "flex items-center justify-center",
+                        className: "relative w-12 h-12",
                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_1___default()), {
                             src: item.icon.url[0],
-                            width: 52,
-                            height: 52,
-                            alt: item.description
+                            placeholder: "blur",
+                            blurDataURL: item.icon.url[0],
+                            layout: "fill",
+                            alt: item.description,
+                            objectFit: "cover"
                         })
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
@@ -76,6 +78,7 @@ const DigiPlus = ({ product  })=>{
                         src: "https://www.digikala.com/statics/img/svg/digiplus-logo.svg",
                         width: 128,
                         height: 32,
+                        priority: true,
                         alt: "digiplus"
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
@@ -96,10 +99,11 @@ const DigiPlus = ({ product  })=>{
                                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_1___default()), {
                                     src: item.images.main.url[0],
                                     alt: item.title_fa,
+                                    placeholder: "blur",
+                                    blurDataURL: item.images.main.url[0],
                                     width: 300,
                                     height: 300,
-                                    layout: "responsive",
-                                    loading: "lazy"
+                                    layout: "responsive"
                                 })
                             })
                         })
@@ -143,13 +147,15 @@ const FreshOffer = ({ offer  })=>{
                         src: "https://www.digikala.com/statics/img/png/amazing/fresh.png",
                         width: 66,
                         height: 66,
-                        alt: offer?.title
+                        alt: offer?.title,
+                        priority: true
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_1___default()), {
                         src: "https://www.digikala.com/statics/img/svg/typography/fresh.svg",
                         width: 250,
                         height: 28,
-                        alt: offer?.title
+                        alt: offer?.title,
+                        priority: true
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
                         className: "bg-green-600 h-8 hidden md:flex items-center rounded-full px-4 text-white text-sm font-bold",
@@ -166,12 +172,11 @@ const FreshOffer = ({ offer  })=>{
                             children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
                                 className: "flex flex-col my-4 px-2 space-y-2",
                                 children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                                    className: "flex relative items-center justify-center p-2 bg-white rounded-full",
+                                    className: "flex relative items-center w-14 h-14 justify-center p-2 bg-white rounded-full",
                                     children: [
                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_1___default()), {
                                             src: item.images.main.url[0],
-                                            width: 58,
-                                            height: 58,
+                                            layout: "fill",
                                             alt: item.title,
                                             className: "rounded-full"
                                         }),

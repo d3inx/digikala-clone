@@ -20,9 +20,10 @@ const IncredibleProducts = ({ suggestedProducts, image, color }) => {
               src={"https://www.digikala.com/statics/img/svg/amazing-typo.svg"}
               width={77}
               height={77}
+              priority
               alt="شگفت انگیز"
             />
-            <Image src={image} width={115} height={115} alt="شگفت انگیز" />
+            <Image priority src={image} width={115} height={115} alt="شگفت انگیز" />
           </div>
           <div className="w-3/5 md:w-5/6">
             <Swiper
@@ -56,13 +57,14 @@ const IncredibleProducts = ({ suggestedProducts, image, color }) => {
                   >
                     <Link href={item.url.uri}>
                       <a>
-                        <div className="flex items-center justify-center">
+                        <div className="relative w-52 h-52 flex items-center justify-center">
                           <Image
                             src={item.images.main.url[0]}
                             alt={item.title}
-                            width={200}
-                            height={200}
-                            quality={100}
+                            placeholder="blur"
+                            blurDataURL={item.images.main.url[0]}
+                            layout='fill'
+                            objectFit="cover"
                           />
                         </div>
                         <div className="flex flex-col mt-2 p-2">

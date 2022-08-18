@@ -14,9 +14,11 @@ const MiddleBanners = ({banners}) => {
                         src={item.image}
                         width={828}
                         height={328}
+                        placeholder="blur"
+                        blurDataURL={item.image}
                         layout="responsive"
                         alt={item.title}
-                        className="rounded-3xl"
+                        className="rounded-lg xl:rounded-3xl"
                     />
 
                     <p className="text-center text-sm">{item.title_fa}</p>

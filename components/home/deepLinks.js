@@ -7,14 +7,15 @@ const DeepLinks = ({links}) => {
     <div className="flex flex-wrap mt-8">
       {links?.map((item) => {
         return (
-          <div key={item.id} className="flex flex-col w-1/4 md:w-1/6 my-4 space-y-2">
-            <div className="flex items-center justify-center">
+          <div key={item.id} className="flex flex-col items-center w-1/4 md:w-1/6 my-4 space-y-2">
+            <div className="relative w-12 h-12">
               <Image
-                
                 src={item.icon.url[0]}
-                width={52}
-                height={52}
+                placeholder='blur'
+                blurDataURL={item.icon.url[0]}
+                layout='fill'
                 alt={item.description}
+                objectFit='cover'
               />
             </div>
             <span className="text-center text-xs">{item.title}</span>

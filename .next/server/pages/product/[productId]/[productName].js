@@ -274,6 +274,8 @@ const ProductImage = ({ images  })=>{
                 src: mainImage === undefined ? images.main.url[0] : mainImage,
                 width: 800,
                 height: 800,
+                placeholder: "blur",
+                blurDataURL: mainImage === undefined ? images.main.url[0] : mainImage,
                 layout: "responsive",
                 className: "object-cover",
                 alt: ""
@@ -288,6 +290,8 @@ const ProductImage = ({ images  })=>{
                             src: image.url[0],
                             width: 100,
                             height: 100,
+                            placeholder: "blur",
+                            blurDataURL: image.url[0],
                             layout: "responsive",
                             className: "object-cover rounded-xl",
                             alt: ""

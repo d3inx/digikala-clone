@@ -16,6 +16,7 @@ const DigiPlus = ({product}) => {
           src={"https://www.digikala.com/statics/img/svg/digiplus-logo.svg"}
           width={128}
           height={32}
+          priority
           alt="digiplus"
         />
         <div className="text-white">خدمات ویژه برای اعضای دیجی&zwnj;پلاس</div>
@@ -29,10 +30,11 @@ const DigiPlus = ({product}) => {
                   <Image
                     src={item.images.main.url[0]}
                     alt={item.title_fa}
+                    placeholder="blur"
+                    blurDataURL={item.images.main.url[0]}                    
                     width={300}
                     height={300}
                     layout="responsive"
-                    loading="lazy"
                   />
                 </div>
               </a>

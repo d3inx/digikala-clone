@@ -10,18 +10,20 @@ const BestSelling = ({ products }) => {
           return (
             <Link href={item.url.uri} key={item.id}>
               <a className="flex items-center md:w-1/4 px-4 my-4">
-                <div className="min-w-fit">
+                <div className="relative min-w-[100px] h-24">
                   <Image
                     src={item.images.main.url[0]}
                     alt={item.title_fa}
-                    width={100}
-                    height={100}
+                    placeholder="blur"
+                    blurDataURL={item.images.main.url[0]}
+                    layout='fill'
+                    objectFit="contain"
                   />
                 </div>
                 <span className="text-xl text-cyan-500 font-bold px-4">
                   {index + 1}
                 </span>
-                <p className="text-sm py-8 border-b-[1px] border-gray-300 truncate">
+                <p className="max-w-fit text-sm py-8 border-b-[1px] border-gray-300 truncate">
                   {item.title_fa}
                 </p>
               </a>

@@ -35,12 +35,14 @@ const BestSelling = ({ products  })=>{
                             className: "flex items-center md:w-1/4 px-4 my-4",
                             children: [
                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                    className: "min-w-fit",
+                                    className: "relative min-w-[100px] h-24",
                                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_1___default()), {
                                         src: item.images.main.url[0],
                                         alt: item.title_fa,
-                                        width: 100,
-                                        height: 100
+                                        placeholder: "blur",
+                                        blurDataURL: item.images.main.url[0],
+                                        layout: "fill",
+                                        objectFit: "contain"
                                     })
                                 }),
                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
@@ -48,7 +50,7 @@ const BestSelling = ({ products  })=>{
                                     children: index + 1
                                 }),
                                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
-                                    className: "text-sm py-8 border-b-[1px] border-gray-300 truncate",
+                                    className: "max-w-fit text-sm py-8 border-b-[1px] border-gray-300 truncate",
                                     children: item.title_fa
                                 })
                             ]
@@ -112,7 +114,8 @@ const Header = ({ sliderItem  })=>{
                     src: item.image,
                     alt: item.title,
                     layout: "fill",
-                    className: "object-cover"
+                    className: "object-cover",
+                    priority: true
                 })
             }, item.id);
         })
@@ -162,9 +165,11 @@ const IncredibleProducts = ({ suggestedProducts , image , color  })=>{
                             src: "https://www.digikala.com/statics/img/svg/amazing-typo.svg",
                             width: 77,
                             height: 77,
+                            priority: true,
                             alt: "\u0634\u06AF\u0641\u062A \u0627\u0646\u06AF\u06CC\u0632"
                         }),
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_1___default()), {
+                            priority: true,
                             src: image,
                             width: 115,
                             height: 115,
@@ -205,13 +210,14 @@ const IncredibleProducts = ({ suggestedProducts , image , color  })=>{
                                     children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
                                         children: [
                                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                                                className: "flex items-center justify-center",
+                                                className: "relative w-52 h-52 flex items-center justify-center",
                                                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_1___default()), {
                                                     src: item.images.main.url[0],
                                                     alt: item.title,
-                                                    width: 200,
-                                                    height: 200,
-                                                    quality: 100
+                                                    placeholder: "blur",
+                                                    blurDataURL: item.images.main.url[0],
+                                                    layout: "fill",
+                                                    objectFit: "cover"
                                                 })
                                             }),
                                             /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
@@ -334,9 +340,11 @@ const MiddleBanners = ({ banners  })=>{
                         src: item.image,
                         width: 828,
                         height: 328,
+                        placeholder: "blur",
+                        blurDataURL: item.image,
                         layout: "responsive",
                         alt: item.title,
-                        className: "rounded-3xl"
+                        className: "rounded-lg xl:rounded-3xl"
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("p", {
                         className: "text-center text-sm",
@@ -419,7 +427,7 @@ const PopularBrands = ({ brands  })=>{
                                 width: 110,
                                 height: 110,
                                 layout: "responsive",
-                                className: ""
+                                objectFit: "contain"
                             })
                         }, item.id);
                     })
@@ -523,11 +531,15 @@ const SellingAndSalesProducts = ({ products  })=>{
                         children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("a", {
                             className: "flex flex-col items-center w-1/2 md:w-1/5 p-4",
                             children: [
-                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_1___default()), {
-                                    src: item.images.main.url[0],
-                                    alt: item.title_fa,
-                                    width: 150,
-                                    height: 150
+                                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
+                                    className: "relative w-36 h-36",
+                                    children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_1___default()), {
+                                        src: item.images.main.url[0],
+                                        alt: item.title_fa,
+                                        placeholder: "blur",
+                                        blurDataURL: item.images.main.url[0],
+                                        layout: "fill"
+                                    })
                                 }),
                                 /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                                     className: "w-full flex flex-col mt-2 p-2",
@@ -585,14 +597,16 @@ const TopBanners = ({ topBanners  })=>{
             className: "flex flex-wrap mt-8",
             children: topBanners?.map((item)=>{
                 return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                    className: "w-1/2 md:w-1/4 p-2",
+                    className: "relative w-1/2 md:w-1/4 p-2",
                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_image__WEBPACK_IMPORTED_MODULE_1___default()), {
                         src: item.image,
                         width: 400,
                         height: 300,
+                        placeholder: "blur",
+                        blurDataURL: item.image,
                         alt: item.title,
                         layout: "responsive",
-                        className: "rounded-xl xl:rounded-3xl"
+                        className: "rounded-lg xl:rounded-3xl"
                     })
                 }, item.id);
             })

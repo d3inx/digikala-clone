@@ -61,6 +61,7 @@ const Navbar = ()=>{
                                 src: "https://www.digikala.com/statics/img/svg/logo.svg",
                                 width: 115,
                                 height: 35,
+                                priority: true,
                                 alt: "",
                                 className: "cursor-pointer"
                             })

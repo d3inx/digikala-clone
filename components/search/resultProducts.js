@@ -15,6 +15,8 @@ const ResultProducts = ({ products }) => {
                   src={item.images.main.url[0]}
                   width={300}
                   height={300}
+                  placeholder="blur"
+                  blurDataURL={item.images.main.url[0]}
                   layout="responsive"
                   alt={item.title_fa}
                 />

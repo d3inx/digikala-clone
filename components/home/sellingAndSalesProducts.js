@@ -10,12 +10,15 @@ const SellingAndSalesProducts = ({ products }) => {
           return (
             <Link href={item.url.uri} key={item.id}>
               <a className="flex flex-col items-center w-1/2 md:w-1/5 p-4">
+                <div className="relative w-36 h-36">
                 <Image
                   src={item.images.main.url[0]}
                   alt={item.title_fa}
-                  width={150}
-                  height={150}
+                  placeholder="blur"
+                  blurDataURL={item.images.main.url[0]}
+                  layout='fill'
                 />
+                </div>
                 <div className="w-full flex flex-col mt-2 p-2">
                   <div className="flex justify-between">
                     <p className="text-neutral-700 font-bold">

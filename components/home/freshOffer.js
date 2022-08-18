@@ -12,12 +12,14 @@ const FreshOffer = ({ offer }) => {
           width={66}
           height={66}
           alt={offer?.title}
+          priority
         />
         <Image
           src={"https://www.digikala.com/statics/img/svg/typography/fresh.svg"}
           width={250}
           height={28}
           alt={offer?.title}
+          priority
         />
         <span className="bg-green-600 h-8 hidden md:flex items-center rounded-full px-4 text-white text-sm font-bold">
           تا ۴۳٪ تخفیف
@@ -28,11 +30,10 @@ const FreshOffer = ({ offer }) => {
           return (
             <Link href={item.url.uri} key={item.id}>
               <a className="flex flex-col my-4 px-2 space-y-2">
-                <div className="flex relative items-center justify-center p-2 bg-white rounded-full">
+                <div className="flex relative items-center w-14 h-14 justify-center p-2 bg-white rounded-full">
                   <Image
                     src={item.images.main.url[0]}
-                    width={58}
-                    height={58}
+                    layout="fill"
                     alt={item.title}
                     className="rounded-full"
                   />
