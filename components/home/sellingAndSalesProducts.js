@@ -17,6 +17,7 @@ const SellingAndSalesProducts = ({ products }) => {
                   placeholder="blur"
                   blurDataURL={item.images.main.url[0]}
                   layout='fill'
+                  loading='eager'
                 />
                 </div>
                 <div className="w-full flex flex-col mt-2 p-2">

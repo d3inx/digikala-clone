@@ -18,6 +18,7 @@ const MainCategories = ({ categories, childCategory }) => {
                   height={400}
                   layout="responsive"
                   alt={item.title_fa}
+                  loading='eager'
                 />
                 <p className="text-center text-sm">{item.title_fa}</p>
               </a>

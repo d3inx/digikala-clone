@@ -20,7 +20,7 @@ const IncredibleProducts = ({ suggestedProducts, image, color }) => {
               src={"https://www.digikala.com/statics/img/svg/amazing-typo.svg"}
               width={77}
               height={77}
-              priority
+              loading='eager'
               alt="شگفت انگیز"
             />
             <Image priority src={image} width={115} height={115} alt="شگفت انگیز" />

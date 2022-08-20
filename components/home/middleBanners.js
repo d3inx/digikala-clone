@@ -19,6 +19,7 @@ const MiddleBanners = ({banners}) => {
                         layout="responsive"
                         alt={item.title}
                         className="rounded-lg xl:rounded-3xl"
+                        loading='eager'
                     />
 
                     <p className="text-center text-sm">{item.title_fa}</p>

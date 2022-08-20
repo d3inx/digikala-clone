@@ -12,14 +12,14 @@ const FreshOffer = ({ offer }) => {
           width={66}
           height={66}
           alt={offer?.title}
-          priority
+          loading='eager'
         />
         <Image
           src={"https://www.digikala.com/statics/img/svg/typography/fresh.svg"}
           width={250}
           height={28}
           alt={offer?.title}
-          priority
+          loading='eager'
         />
         <span className="bg-green-600 h-8 hidden md:flex items-center rounded-full px-4 text-white text-sm font-bold">
           تا ۴۳٪ تخفیف
@@ -36,6 +36,7 @@ const FreshOffer = ({ offer }) => {
                     layout="fill"
                     alt={item.title}
                     className="rounded-full"
+                    loading='eager'
                   />
                   <span className="bg-rose-600 absolute bottom-0 right-0 flex items-center rounded-full px-2 text-xs text-white font-bold">
                     {item.default_variant.price.discount_percent}٪

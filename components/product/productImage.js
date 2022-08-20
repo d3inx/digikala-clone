@@ -22,6 +22,7 @@ const ProductImage = ({ images }) => {
         layout="responsive"
         className="object-cover"
         alt=""
+        loading='eager'
       />
       <div className="flex flex-row justify-center items-center flex-wrap">
         {images.list?.map((image) => {

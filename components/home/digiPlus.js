@@ -18,6 +18,7 @@ const DigiPlus = ({product}) => {
           height={32}
           priority
           alt="digiplus"
+          loading='eager'
         />
         <div className="text-white">خدمات ویژه برای اعضای دیجی&zwnj;پلاس</div>
       </div>
@@ -35,6 +36,7 @@ const DigiPlus = ({product}) => {
                     width={300}
                     height={300}
                     layout="responsive"
+                    loading='eager'
                   />
                 </div>
               </a>

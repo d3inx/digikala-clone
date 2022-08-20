@@ -11,6 +11,7 @@ const DeepLinks = ({links}) => {
             <div className="relative w-12 h-12">
               <Image
                 src={item.icon.url[0]}
+                loading='eager'
                 placeholder='blur'
                 blurDataURL={item.icon.url[0]}
                 layout='fill'

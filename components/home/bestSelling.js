@@ -18,6 +18,7 @@ const BestSelling = ({ products }) => {
                     blurDataURL={item.images.main.url[0]}
                     layout='fill'
                     objectFit="contain"
+                    loading='eager'
                   />
                 </div>
                 <span className="text-xl text-cyan-500 font-bold px-4">

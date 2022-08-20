@@ -55,6 +55,7 @@ const PopularBrands = ({ brands }) => {
                   height={110}
                   layout="responsive"
                   objectFit="contain"
+                  loading='eager'
                 />
               </SwiperSlide>
             );
