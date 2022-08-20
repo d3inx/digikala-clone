@@ -16,7 +16,6 @@ const DigiPlus = ({product}) => {
           src={"https://www.digikala.com/statics/img/svg/digiplus-logo.svg"}
           width={128}
           height={32}
-          priority
           alt="digiplus"
           loading='eager'
         />

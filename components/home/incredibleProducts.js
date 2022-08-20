@@ -23,7 +23,7 @@ const IncredibleProducts = ({ suggestedProducts, image, color }) => {
               loading='eager'
               alt="شگفت انگیز"
             />
-            <Image priority src={image} width={115} height={115} alt="شگفت انگیز" />
+            <Image src={image} width={115} height={115} alt="شگفت انگیز" />
           </div>
           <div className="w-3/5 md:w-5/6">
             <Swiper
