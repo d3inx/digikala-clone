@@ -28,8 +28,9 @@ const Navbar = () => {
                 src="https://www.digikala.com/statics/img/svg/logo.svg"
                 width={115}
                 height={35}
+                quality={25}
                 loading="eager"
-                alt=""
+                alt="digikala"
                 className="cursor-pointer"
               />
             </Link>
