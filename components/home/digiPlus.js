@@ -6,11 +6,11 @@ const DigiPlus = ({product}) => {
   return (
     <div className="flex flex-wrap bg-fuchsia-700 rounded-3xl p-4 md:p-8 mt-8">
       <div
-        className="w-full md:w-1/3 bg-center bg-cover h-96 md:h-auto"
-        style={{
-          backgroundImage:
-            "url('https://www.digikala.com/statics/img/png/digiplus/plus-widget.png')",
-        }}
+        className="relative w-full md:w-1/3 bg-center bg-cover h-96 md:h-auto"
+        // style={{
+        //   backgroundImage:
+        //     "url('https://www.digikala.com/statics/img/png/digiplus/plus-widget.png')",
+        // }}
       >
         <Image
           src={"https://www.digikala.com/statics/img/svg/digiplus-logo.svg"}
@@ -18,6 +18,14 @@ const DigiPlus = ({product}) => {
           height={32}
           alt="digiplus"
           loading='eager'
+        />
+        <Image
+          src={"https://www.digikala.com/statics/img/png/digiplus/plus-widget.png"}
+          layout='fill'
+          alt="digiplus"
+          quality={50}
+          loading='eager'
+          objectFit="cover"
         />
         <div className="text-white">خدمات ویژه برای اعضای دیجی&zwnj;پلاس</div>
       </div>
