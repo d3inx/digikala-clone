@@ -29,7 +29,9 @@ const IncredibleProducts = ({ suggestedProducts, image, color }) => {
             <Swiper
               breakpoints={{
                 // when window width is >= 640px
-
+                0: {
+                  slidesPerView: 1.5,
+                },
                 640: {
                   width: 640,
                   slidesPerView: 2,
@@ -65,6 +67,7 @@ const IncredibleProducts = ({ suggestedProducts, image, color }) => {
                             blurDataURL={item.images.main.url[0]}
                             layout='fill'
                             objectFit="cover"
+                            loading='eager'
                           />
                         </div>
                         <div className="flex flex-col mt-2 p-2">

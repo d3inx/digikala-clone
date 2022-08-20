@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 
 import Image from "next/image";
 
@@ -36,6 +36,7 @@ const ReviewSection = ({ item , show , setShow }) => {
                     layout="responsive"
                     alt=""
                     className="object-cover"
+                    loading="eager"
                   />
                 </div>
               </div>
@@ -57,6 +58,7 @@ const ReviewSection = ({ item , show , setShow }) => {
                     layout="responsive"
                     alt=""
                     className="object-cover"
+                    loading="eager"
                   />
                 </div>
               </div>
@@ -72,6 +74,7 @@ const ReviewSection = ({ item , show , setShow }) => {
                     layout="responsive"
                     alt=""
                     className="object-cover"
+                    loading="eager"
                   />
                 </div>
                 <div className="w-full lg:w-3/4">

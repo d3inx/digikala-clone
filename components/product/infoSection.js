@@ -107,6 +107,7 @@ const InfoSection = ({
           width={132}
           height={77}
           alt=""
+          loading="eager"
         />
       </div>
       <div className="flex justify-between items-center bg-white my-4 p-4 border-[.5px] rounded-xl">

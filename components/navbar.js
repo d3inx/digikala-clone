@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
 import { SearchIcon } from "@heroicons/react/outline";
 
 const Navbar = () => {
-  const [showMenu, setShowMenu] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
   const router = useRouter();
@@ -24,7 +23,7 @@ const Navbar = () => {
       <div className="container mx-auto">
         <div className="flex flex-col items-start py-4 space-y-4">
           <div className="flex flex-col lg:flex-row w-full">
-            <Link href={'/'}>
+            <Link href={"/"}>
               <Image
                 src="https://www.digikala.com/statics/img/svg/logo.svg"
                 width={115}
@@ -51,20 +50,8 @@ const Navbar = () => {
               />
             </form>
           </div>
-          {/* <ul>
-            <li
-              className={`flex cursor-pointer ${
-                showMenu ? "border-b-2 pb-1 border-red-500" : ""
-              }`}
-              onClick={() => setShowMenu(!showMenu)}
-            >
-              <MenuIcon className="w-6 h-6 text-gray-500" />
-              <span className="text-gray-500 pr-4">دسته بندی</span>
-            </li>
-          </ul> */}
         </div>
       </div>
-      {/* {showMenu && <Category showMenu={showMenu} setShowMenu={setShowMenu} />} */}
     </div>
   );
 };

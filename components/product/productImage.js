@@ -41,6 +41,7 @@ const ProductImage = ({ images }) => {
                 layout="responsive"
                 className="object-cover rounded-xl"
                 alt=""
+                loading="eager"
               />
             </div>
           );
