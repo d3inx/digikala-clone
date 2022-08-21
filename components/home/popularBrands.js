@@ -21,9 +21,9 @@ const PopularBrands = ({ brands }) => {
           breakpoints={{
             // when window width is >= 640px
 
-            0: {
-              spaceBetween: 0,
-              slidesPerView: 4,
+            320: {
+              slidesPerView: 3,
+              spaceBetween: 5,
             },
             // when window width is >= 768px
             768: {

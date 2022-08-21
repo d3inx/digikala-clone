@@ -9,7 +9,7 @@ const BestSelling = ({ products }) => {
         {products?.map((item, index) => {
           return (
             <Link href={item.url.uri} key={item.id}>
-              <a className="flex items-center md:w-1/4 px-4 my-4">
+              <a className="flex items-center w-full sm:w-1/2 lg:w-1/4 px-4 my-4">
                 <div className="relative min-w-[100px] h-24">
                   <Image
                     src={item.images.main.url[0]}
@@ -24,7 +24,7 @@ const BestSelling = ({ products }) => {
                 <span className="text-xl text-cyan-500 font-bold px-4">
                   {index + 1}
                 </span>
-                <p className="max-w-fit text-sm py-8 border-b-[1px] border-gray-300 truncate">
+                <p className="max-w-max text-sm py-8 border-b-[1px] border-gray-300 truncate">
                   {item.title_fa}
                 </p>
               </a>
