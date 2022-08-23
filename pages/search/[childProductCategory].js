@@ -1,7 +1,8 @@
 import Search from ".";
+import SearchData from "../../filter_data/searchData";
 
-const ChildProductCategory = ({ data, query }) => {
-  return <Search result={data} query={query} />;
+const ChildProductCategory = ({ filteredData, query }) => {
+  return <Search filteredData={filteredData} query={query} />;
 };
 
 export default ChildProductCategory;
@@ -25,7 +26,13 @@ export async function getServerSideProps({ params, query }) {
     };
   }
 
+  const filteredData = SearchData(
+    data.data.sort_options,
+    data.data.products,
+    data.data.pager.total_pages,
+  );
+
   return {
-    props: { data, query },
+    props: { filteredData, query },
   };
 }
