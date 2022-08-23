@@ -57,14 +57,14 @@ const IncredibleProducts = ({ suggestedProducts, image, color }) => {
                     className=" flex flex-col w-full h-full bg-white"
                     key={item.id}
                   >
-                    <Link href={item.url.uri}>
+                    <Link href={item.url}>
                       <a>
                         <div className="relative w-52 h-52 flex items-center justify-center">
                           <Image
-                            src={item.images.main.url[0]}
-                            alt={item.title}
+                            src={item.image}
+                            alt={item.title_fa}
                             placeholder="blur"
-                            blurDataURL={item.images.main.url[0]}
+                            blurDataURL={item.image}
                             layout='fill'
                             objectFit="cover"
                             loading='eager'
@@ -73,14 +73,14 @@ const IncredibleProducts = ({ suggestedProducts, image, color }) => {
                         <div className="flex flex-col mt-2 p-2">
                           <div className="flex justify-between">
                             <p className="text-neutral-700 font-bold">
-                              {item.default_variant.price.selling_price.toLocaleString() + " ریال"}
+                              {item.sellingPrice.toLocaleString() + " ریال"}
                             </p>
                             <span className="bg-rose-600 flex items-center rounded-full px-2 text-xs text-white font-bold">
-                              {item.default_variant.price.discount_percent}٪
+                              {item.discountPercent}٪
                             </span>
                           </div>
                           <span className="text-gray-500 text-sm line-through">
-                            {item.default_variant.price.rrp_price.toLocaleString() + " ریال"}
+                            {item.rrpPrice.toLocaleString() + " ریال"}
                           </span>
                         </div>
                       </a>

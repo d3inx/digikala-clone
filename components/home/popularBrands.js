@@ -49,8 +49,8 @@ const PopularBrands = ({ brands }) => {
               >
                 <Image
                   
-                  src={item.logo.url[0]}
-                  alt={item.title_fa}
+                  src={item.image}
+                  alt={item.title}
                   width={110}
                   height={110}
                   layout="responsive"

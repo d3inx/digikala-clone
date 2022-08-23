@@ -2,14 +2,15 @@ import React from "react";
 import { PaginatedItems } from "../../components/search/pagination";
 import ResultProducts from "../../components/search/resultProducts";
 import SortOption from "../../components/search/sortOption";
+import SearchData from "../../filter_data/searchData";
 
-const Search = ({ result , query }) => {
+const Search = ({ filteredData , query }) => {
   return (
     <div className="xl:container xl:mx-auto px-4 mt-4">
       <div>
-        <SortOption option={result.data.sort_options} query={query} />
-        <ResultProducts products={result.data.products} />
-        <PaginatedItems itemsPerPage={20} totalPages={result.data.pager.total_pages} products={result.data.products} className='container' />
+        <SortOption option={filteredData.sortOptions} query={query} />
+        <ResultProducts products={filteredData.products} />
+        <PaginatedItems itemsPerPage={20} totalPages={filteredData.totalPages} products={filteredData.products} className='container' />
       </div>
     </div>
   );
@@ -22,12 +23,17 @@ export async function getServerSideProps({query}) {
     return `${item}=${query[item]}`;
   }
   ).join('&');
-  console.log(`https://api.digikala.com/v1/search/?${fetchQuery}`);
   const result = await fetch(
     `https://api.digikala.com/v1/search/?${fetchQuery}`
   ).then((res) => res.json());
-  console.log(result);
-  return {
-    props: { result , query  },
+
+  const filteredData = SearchData(
+    result.data.sort_options,
+    result.data.products,
+    result.data.pager.total_pages,
+  );
+
+  return {  
+    props: { filteredData , query  },
   };
 }

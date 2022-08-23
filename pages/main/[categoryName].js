@@ -6,26 +6,27 @@ import PopularBrands from "../../components/home/popularBrands";
 import RecommendationSubCategories from "../../components/home/recommendationSubCategories";
 import SellingAndSalesProducts from "../../components/home/sellingAndSalesProducts";
 import TopBanners from "../../components/home/topBanners";
+import ChildCategoryData from "../../filter_data/childCategoryData";
 import Header from "./../../components/home/header";
 
-const categoryPage = ({ data }) => {
+const categoryPage = ({ filteredData }) => {
   return (
     <div className="xl:container xl:mx-auto px-4 xl:px-28">
-        <Header sliderItem={data.data.slider_banners} />
+        <Header sliderItem={filteredData.slider_banners} />
         <IncredibleProducts
-          suggestedProducts={data.data.incredible_offers.products}
+          suggestedProducts={filteredData.incredible_offers}
           image={
             "https://www.digikala.com/statics/img/png/specialCarousel/Electronics.png"
           }
           color={"bg-indigo-600"}
         />
-        <MainCategories categories={data.data.sub_categories} childCategory={true} />
-        <MiddleBanners banners={data.data.middle_banners} />
-        <RecommendationSubCategories categories={data.data.recommendation_sub_categories} />
-        <TopBanners topBanners={data.data.top_banners} />
-        <BestSelling products={data.data.best_selling_products.products} />
-        <SellingAndSalesProducts products={data.data.top_repurchased_products.products} />
-        <PopularBrands brands={data.data.popular_brands.brands} />
+        <MainCategories categories={filteredData.sub_categories} />
+        <MiddleBanners banners={filteredData.middle_banners} />
+        <RecommendationSubCategories categories={filteredData.recommendation_sub_categories} />
+        <TopBanners topBanners={filteredData.top_banners} />
+        <BestSelling products={filteredData.best_selling_products} />
+        <SellingAndSalesProducts products={filteredData.top_repurchased_products} />
+        <PopularBrands brands={filteredData.popular_brands} />
       </div>
   );
 };
@@ -43,8 +44,21 @@ export async function getServerSideProps({ params }) {
       notFound: true,
     };
   }
+   const filteredData = ChildCategoryData(
+    data.data.slider_banners,
+    data.data.incredible_offers.products,
+    data.data.sub_categories,
+    data.data.middle_banners,
+    data.data.recommendation_sub_categories,
+    data.data.top_banners,
+    data.data.best_selling_products.products,
+    data.data.top_repurchased_products.products,
+    data.data.popular_brands.brands,
+  );
+
+  
 
   return {
-    props: { data },
+    props: { filteredData },
   };
 }

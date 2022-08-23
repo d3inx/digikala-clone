@@ -10,35 +10,34 @@ import DigiPlus from "../components/home/digiPlus";
 import BestSelling from "../components/home/bestSelling";
 import SellingAndSalesProducts from "../components/home/sellingAndSalesProducts";
 import FreshOffer from "../components/home/freshOffer";
+import homeData from "../filter_data/homeData";
 
-export default function Home({ data }) {
-  // eslint-disable-line
-
+export default function Home({ filteredData }) {
   return (
     <>
-      <Header sliderItem={data.data.header_banners} />
+      <Header sliderItem={filteredData.header_banners} />
       <div className="xl:container xl:mx-auto px-4 xl:px-28">
-        <DeepLinks links={data.data.deep_links} />
+        <DeepLinks links={filteredData.deep_links} />
         <IncredibleProducts
-          suggestedProducts={data.data.incredible_products.products}
+          suggestedProducts={filteredData.incredible_products}
           image={
             "https://www.digikala.com/statics/img/png/specialCarousel/General.png"
           }
           color={"bg-rose-600"}
         />
-        <FreshOffer offer={data.data.fresh_incredible_products} />
-        <TopBanners topBanners={data.data.top_banners} />
-        <MainCategories categories={data.data.main_categories.categories} />
-        <MiddleBanners banners={data.data.middle_banners} />
+        <FreshOffer offer={filteredData.fresh_incredible_products} />
+        <TopBanners topBanners={filteredData.top_banners} />
+        <MainCategories categories={filteredData.main_categories} />
+        <MiddleBanners banners={filteredData.middle_banners} />
         <RecommendationSubCategories
-          categories={data.data.recommendation_sub_categories}
+          categories={filteredData.recommendation_sub_categories}
         />
-        <PopularBrands brands={data.data.popular_brands.brands} />
-        <MiddleBanners banners={data.data.middle_banners_third} />
-        <DigiPlus product={data.data.digiplus.jet_delivery_products.products} />
-        <BestSelling products={data.data.best_selling_products.products} />
+        <PopularBrands brands={filteredData.popular_brands} />
+        <MiddleBanners banners={filteredData.middle_banners_third} />
+        <DigiPlus product={filteredData.digiplus} />
+        <BestSelling products={filteredData.best_selling_products} />
         <SellingAndSalesProducts
-          products={data.data.selling_and_sales_products.products}
+          products={filteredData.selling_and_sales_products}
         />
       </div>
     </>
@@ -49,8 +48,25 @@ export async function getServerSideProps() {
   const data = await fetch("https://api.digikala.com/v1/").then((res) =>
     res.json()
   );
+  
+  const filteredData = homeData(
+    data.data.header_banners,
+    data.data.deep_links,
+    data.data.incredible_products.products,
+    data.data.fresh_incredible_products.products,
+    data.data.top_banners,
+    data.data.main_categories.categories,
+    data.data.middle_banners,
+    data.data.recommendation_sub_categories,
+    data.data.middle_banners_third,
+    data.data.popular_brands.brands,
+    data.data.digiplus.jet_delivery_products.products,
+    data.data.best_selling_products.products,
+    data.data.selling_and_sales_products.products
+  );
 
+  
   return {
-    props: { data },
+    props: { filteredData },
   };
 }

@@ -1,9 +1,6 @@
 
 import Image from "next/image";
 
-
-
-
 const TopBanners = ({topBanners}) => {
   
   

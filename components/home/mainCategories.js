@@ -8,19 +8,17 @@ const MainCategories = ({ categories, childCategory }) => {
       <div className="flex flex-wrap">
         {categories?.map((item) => {
           return (
-            <Link href={item.url.uri} key={item.id}>
+            <Link href={item.url} key={item.id}>
               <a className="w-1/3 md:w-1/5 p-4 md:p-10" key={item.id}>
                 <Image
-                  src={
-                    !childCategory ? item.logo.url[0] : item.top_product_image
-                  }
+                  src={item.image}
                   width={400}
                   height={400}
                   layout="responsive"
-                  alt={item.title_fa}
-                  loading='eager'
+                  alt={item.title}
+                  loading="eager"
                 />
-                <p className="text-center text-sm">{item.title_fa}</p>
+                <p className="text-center text-sm">{item.title}</p>
               </a>
             </Link>
           );

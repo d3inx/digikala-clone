@@ -15,7 +15,7 @@ const InfoSection = ({
   content_description,
   digiplus,
 }) => {
-  const [selectedColor, setSelectedColor] = useState(colors[0]?.title);
+  const [selectedColor, setSelectedColor] = useState(colors[0]?.color);
   return (
     <div className="w-full lg:w-2/5 lg:px-4 mt-4 lg:mt-0">
       <h1 className="text-base lg:text-xl font-bold mb-4 lg:mb-0">
@@ -52,14 +52,14 @@ const InfoSection = ({
             {colors.map((color) => {
               return (
                 <div
-                  key={color.title}
+                  key={color.id}
                   className={`cursor-pointer border-4 ring-1 ring-gray-300 w-8 h-8 lg:w-10 lg:h-10 rounded-full mx-1  ${
-                    selectedColor === color.title
+                    selectedColor === color.color
                       ? "border-cyan-500"
                       : "border-white"
                   }`}
-                  style={{ backgroundColor: color.hex_code }}
-                  onClick={() => setSelectedColor(color.title)}
+                  style={{ backgroundColor: color.hexCode }}
+                  onClick={() => setSelectedColor(color.color)}
                 ></div>
               );
             })}
@@ -71,7 +71,7 @@ const InfoSection = ({
           <p className="text-sm lg:text-lg font-bold mt-8">ویژگی&zwnj;ها</p>
           {review.map((review) => {
             return (
-              <li key={review.id} className="flex items-center my-4">
+              <li key={review.title} className="flex items-center my-4">
                 <p className="text-sm lg:text-base text-gray-500">
                   {review.title} :
                 </p>
@@ -115,7 +115,7 @@ const InfoSection = ({
           <p className="text-sm lg:text-base">ویژه اعضای دیجی&zwnj;پلاس</p>
           {digiplus.map((item) => {
             return (
-              <li key={item.id} className="flex items-center my-4">
+              <li key={item} className="flex items-center my-4">
                 <p className="text-xs text-gray-500">{item}</p>
               </li>
             );

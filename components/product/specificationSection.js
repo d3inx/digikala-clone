@@ -1,6 +1,6 @@
 import React from "react";
 
-const SpecificationSection = ({data , show}) => {
+const SpecificationSection = ({data}) => {
   return (
     <div className="flex items-center mt-4 ">
       <p className="text-xs lg:text-base w-1/4 text-gray-500 leading-loose">{data.title} :</p>

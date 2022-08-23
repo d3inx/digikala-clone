@@ -6,6 +6,7 @@ import ProductImage from "../../../components/product/productImage";
 import RecommendationsProduct from "../../../components/product/recommendationsProduct";
 import Seller from "../../../components/product/seller";
 import Variant from "../../../components/product/variant";
+import productData from "../../../filter_data/productData";
 
 const Introduction = dynamic(() =>
   import("../../../components/product/introduction")
@@ -18,44 +19,44 @@ const Specifications = dynamic(() =>
 
 const Comments = dynamic(() => import("../../../components/product/comments"));
 
-const Product = ({ data }) => {
+const Product = ({ filteredData }) => {
   return (
     <div className="xl:container xl:mx-auto px-4 mt-4">
-      <Breadcrumb data={data.data.product.breadcrumb} />
+      <Breadcrumb data={filteredData.breadcrumb} />
       <div className="flex flex-wrap w-full my-8 pb-8 border-b-4 ">
-        <ProductImage images={data.data.product.images} />
+        <ProductImage images={filteredData.images} />
         <InfoSection
-          title_fa={data.data.product.title_fa}
-          title_en={data.data.product.title_en}
-          rating={data.data.product.rating}
-          suggestion={data.data.product.suggestion}
-          colors={data.data.product.colors}
-          review={data.data.product.review.attributes}
-          content_description={data.data.product.category.content_description}
-          digiplus={data.data.product.digiplus.services}
+          title_fa={filteredData.infoSection.title_fa}
+          title_en={filteredData.infoSection.title_en}
+          rating={filteredData.infoSection.rating}
+          suggestion={filteredData.infoSection.suggestion}
+          colors={filteredData.infoSection.colors}
+          review={filteredData.infoSection.review}
+          content_description={filteredData.infoSection.contentDescription}
+          digiplus={filteredData.infoSection.digiplus}
         />
         <Variant
-          default_variant={data.data.product.default_variant}
-          status={data.data.product.status}
+          default_variant={filteredData.variant}
+          status={filteredData.variant.status}
         />
       </div>
-      <Seller sellers={data.data.product.variants} />
+      <Seller sellers={filteredData.sellers} />
       <RecommendationsProduct
-        product={data.data.recommendations.related_products.products}
+        product={filteredData.recommendationProduct}
       />
-      {data.data.product.expert_reviews.description !== "" && (
-        <Introduction data={data.data.product.expert_reviews.description} />
+      {filteredData.introduction !== "" && (
+        <Introduction data={filteredData.introduction} />
       )}
-      {data.data.product.expert_reviews.review_sections[0] !== undefined && (
-        <Review data={data.data.product.expert_reviews.review_sections} />
+      {filteredData.review[0] !== undefined && (
+        <Review data={filteredData.review} />
       )}
-      {data.data.product.specifications[0].attributes[0] !== undefined && (
+      {filteredData.specifications[0] !== undefined && (
         <Specifications
-          attributes={data.data.product.specifications[0].attributes}
+          attributes={filteredData.specifications}
         />
       )}
-      {data.data.product.last_comments[0] !== undefined && (
-        <Comments data={data.data.product.last_comments} />
+      {filteredData.lastComments[0] !== undefined && (
+        <Comments data={filteredData.lastComments} />
       )}
     </div>
   );
@@ -68,7 +69,28 @@ export async function getServerSideProps({ params }) {
     `https://api.digikala.com/v1/product/${params.productId.substring(4)}/`
   ).then((res) => res.json());
 
+  const filteredData = productData(
+    data.data.product.breadcrumb,
+    data.data.product.images,
+    data.data.product.title_fa,
+    data.data.product.title_en,
+    data.data.product.rating,
+    data.data.product.suggestion,
+    data.data.product.colors,
+    data.data.product.review.attributes,
+    data.data.product.category.content_description,
+    data.data.product.digiplus.services,
+    data.data.product.default_variant,
+    data.data.product.status,
+    data.data.product.variants,
+    data.data.recommendations.related_products.products,
+    data.data.product.expert_reviews.description,
+    data.data.product.expert_reviews.review_sections,
+    data.data.product.specifications[0].attributes,
+    data.data.product.last_comments
+  );
+
   return {
-    props: { data },
+    props: { filteredData },
   };
 }

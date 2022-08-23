@@ -24,9 +24,9 @@ const Comments = ({ data }) => {
                 <h2 className="text-sm lg:text-base font-bold mr-4">{data.title}</h2>
               </div>
               <div className="flex items-center text-xs text-gray-500 mt-8 pb-4 border-b-[.5px]">
-                <p>{data.created_at}</p>
+                <p>{data.createdAt}</p>
                 <div className="w-1 h-1 rounded-full bg-gray-300 mx-4"></div>
-                <p>{data.user_name}</p>
+                <p>{data.userName}</p>
               </div>
               <div className="pt-8">
                 <p className="text-xs lg:text-sm leading-loose">{data.body}</p>
@@ -55,13 +55,13 @@ const Comments = ({ data }) => {
               </>
               <div className="flex justify-end items-center text-gray-400">
                 <div className="flex">
-                    <p className="text-xs lg:text-sm">{data.reactions.likes}</p>
+                    <p className="text-xs lg:text-sm">{data.likes}</p>
                     <div className="pr-1">
                         <ThumbUpIcon className="w-5 h-5" />
                     </div>
                 </div>
                 <div className="flex mr-4">
-                    <p className="text-xs lg:text-sm">{data.reactions.dislikes}</p>
+                    <p className="text-xs lg:text-sm">{data.dislikes}</p>
                     <div className="pr-1">
                         <ThumbDownIcon className="w-5 h-5" />
                     </div>

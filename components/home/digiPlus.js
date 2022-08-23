@@ -32,14 +32,14 @@ const DigiPlus = ({product}) => {
       <div className="flex flex-row flex-wrap w-full md:w-2/3 bg-white rounded-lg md:rounded-2xl">
         {product?.map((item) => {
           return (
-            <Link href={item.url.uri} key={item.id}>
+            <Link href={item.url} key={item.id}>
               <a className="w-1/3 md:w-1/6">
                 <div className="p-4">
                   <Image
-                    src={item.images.main.url[0]}
-                    alt={item.title_fa}
+                    src={item.image}
+                    alt={item.title}
                     placeholder="blur"
-                    blurDataURL={item.images.main.url[0]}                    
+                    blurDataURL={item.image}                    
                     width={300}
                     height={300}
                     layout="responsive"

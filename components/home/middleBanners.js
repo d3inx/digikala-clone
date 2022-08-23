@@ -22,8 +22,6 @@ const MiddleBanners = ({banners}) => {
                         loading='eager'
                     />
 
-                    <p className="text-center text-sm">{item.title_fa}</p>
-
                     </div>
             );
         }

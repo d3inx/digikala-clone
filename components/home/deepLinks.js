@@ -10,10 +10,10 @@ const DeepLinks = ({links}) => {
           <div key={item.id} className="flex flex-col items-center w-1/4 md:w-1/6 my-4 space-y-2">
             <div className="relative w-12 h-12">
               <Image
-                src={item.icon.url[0]}
+                src={item.image}
                 loading='eager'
                 placeholder='blur'
-                blurDataURL={item.icon.url[0]}
+                blurDataURL={item.image}
                 layout='fill'
                 alt={item.description}
                 objectFit='cover'

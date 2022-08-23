@@ -9,12 +9,12 @@ const Variant = ({ default_variant, status }) => {
           <h1>فروشنده</h1>
           <div className="border-b-[.5px]">
             <p className="text-sm lg:text-base mt-8 py-4">
-              {default_variant.seller.title}
+              {default_variant.defaultVariant.sellerName}
             </p>
-            {default_variant.rate > 0 && (
+            {default_variant.defaultVariant.rate > 0 && (
               <p className="text-xs text-gray-500 my-3">
                 <span className="text-green-600 pl-2">
-                  {default_variant.rate}%
+                  {default_variant.defaultVariant.rate}%
                 </span>{" "}
                 رضایت از کالا
               </p>
@@ -24,38 +24,38 @@ const Variant = ({ default_variant, status }) => {
             <div className="pl-2">
               <ShieldCheckIcon className="w-5 h-5" />
             </div>
-            <p className="text-sm py-4">{default_variant.warranty.title_fa}</p>
+            <p className="text-sm py-4">{default_variant.defaultVariant.warranty}</p>
           </div>
           <div className="py-4 border-b-[.5px]">
             <p className="text-sm lg:text-base font-bold">
-              {default_variant.shipment_methods.description}
+              {default_variant.defaultVariant.shipmentMethodsDescription}
             </p>
             <div className="flex items-center">
               <div className="pl-2">
                 <TruckIcon className="w-4 h-4 text-red-500" />
               </div>
               <p className="text-xs lg:text-sm text-gray-500">
-                {default_variant.shipment_methods.providers[0].title}
+                {default_variant.defaultVariant.shipmentMethodsProvidersTitle}
               </p>
             </div>
           </div>
           <p className="text-xs py-4 border-b-[.5px]">
-            {default_variant.digiclub.point} امتیاز دیجی&zwnj;کلاب
+            {default_variant.defaultVariant.digiclubPoint} امتیاز دیجی&zwnj;کلاب
           </p>
           <div className="w-full lg:w-auto fixed lg:static bottom-0 right-0 border-t-2 bg-white p-4 lg:p-0 z-50">
             <div className="flex flex-col items-end py-1 lg:py-4">
-              {default_variant.price.discount_percent > 0 && (
+              {default_variant.defaultVariant.discountPercent > 0 && (
                 <div className="flex justify-end">
                   <span className="text-gray-500 text-xs line-through">
-                    {default_variant.price.rrp_price.toLocaleString() + " ریال"}
+                    {default_variant.defaultVariant.rrpPrice.toLocaleString() + " ریال"}
                   </span>
                   <span className="bg-rose-600 flex items-center rounded-full px-2 mr-2 text-xs text-white font-bold">
-                    {default_variant.price.discount_percent}٪
+                    {default_variant.defaultVariant.discountPercent}٪
                   </span>
                 </div>
               )}
               <p className="pt-4 font-bold">
-                {default_variant.price.selling_price.toLocaleString() + " ریال"}
+                {default_variant.defaultVariant.sellingPrice.toLocaleString() + " ریال"}
               </p>
             </div>
             <button className="w-full text-sm bg-rose-500 text-white rounded-lg py-3">

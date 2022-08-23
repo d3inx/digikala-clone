@@ -43,20 +43,20 @@ const RecommendationsProduct = ({ product }) => {
               key={item.id}
               className="px-2 md:px-6 border-x-[.5px] "
             >
-              <Link href={item.url.uri}>
+              <Link href={item.url}>
                 <a>
                   <Image
-                    src={item.images.main.url[0]}
-                    alt={item.title_fa}
+                    src={item.image}
+                    alt={item.title}
                     width={110}
                     height={110}
                     layout="responsive"
                     className=""
                     loading="eager"
                   />
-                  <p className="text-sm line-clamp-2">{item.title_fa}</p>
+                  <p className="text-sm line-clamp-2">{item.title}</p>
                   <p className="text-sm lg:text-base text-left pt-4 font-bold">
-                    {item.default_variant.price.selling_price.toLocaleString() + " ریال"}
+                    {item.price.toLocaleString() + " ریال"}
                   </p>
                 </a>
               </Link>

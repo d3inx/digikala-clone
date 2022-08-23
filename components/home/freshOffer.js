@@ -26,20 +26,20 @@ const FreshOffer = ({ offer }) => {
         </span>
       </div>
       <div className="flex flex-wrap justify-center items-center w-full md:w-3/5 ">
-        {offer?.products.slice(0, 3).map((item) => {
+        {offer?.map((item) => {
           return (
-            <Link href={item.url.uri} key={item.id}>
+            <Link href={item.url} key={item.id}>
               <a className="flex flex-col my-4 px-2 space-y-2">
                 <div className="flex relative items-center w-14 h-14 justify-center p-2 bg-white rounded-full">
                   <Image
-                    src={item.images.main.url[0]}
+                    src={item.image}
                     layout="fill"
                     alt={item.title}
                     className="rounded-full"
                     loading='eager'
                   />
                   <span className="bg-rose-600 absolute bottom-0 right-0 flex items-center rounded-full px-2 text-xs text-white font-bold">
-                    {item.default_variant.price.discount_percent}٪
+                    {item.discountPercent}٪
                   </span>
                 </div>
               </a>

@@ -8,14 +8,14 @@ const BestSelling = ({ products }) => {
       <div className="flex flex-wrap">
         {products?.map((item, index) => {
           return (
-            <Link href={item.url.uri} key={item.id}>
+            <Link href={item.url} key={item.id}>
               <a className="flex items-center w-full sm:w-1/2 lg:w-1/4 px-4 my-4">
                 <div className="relative min-w-[100px] h-24">
                   <Image
-                    src={item.images.main.url[0]}
+                    src={item.image}
                     alt={item.title_fa}
                     placeholder="blur"
-                    blurDataURL={item.images.main.url[0]}
+                    blurDataURL={item.image}
                     layout='fill'
                     objectFit="contain"
                     loading='eager'
@@ -25,7 +25,7 @@ const BestSelling = ({ products }) => {
                   {index + 1}
                 </span>
                 <p className="max-w-max text-sm py-8 border-b-[1px] border-gray-300 truncate">
-                  {item.title_fa}
+                  {item.title}
                 </p>
               </a>
             </Link>

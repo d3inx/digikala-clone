@@ -32,6 +32,7 @@ const Navbar = () => {
                 loading="eager"
                 alt="digikala"
                 className="cursor-pointer"
+                priority
               />
             </Link>
             <form
