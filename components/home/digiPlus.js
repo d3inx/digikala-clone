@@ -43,7 +43,6 @@ const DigiPlus = ({product}) => {
                     width={300}
                     height={300}
                     layout="responsive"
-                    loading='eager'
                   />
                 </div>
               </a>

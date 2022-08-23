@@ -19,7 +19,6 @@ const MiddleBanners = ({banners}) => {
                         layout="responsive"
                         alt={item.title}
                         className="rounded-lg xl:rounded-3xl"
-                        loading='eager'
                     />
 
                     </div>

@@ -67,7 +67,6 @@ const IncredibleProducts = ({ suggestedProducts, image, color }) => {
                             blurDataURL={item.image}
                             layout='fill'
                             objectFit="cover"
-                            loading='eager'
                           />
                         </div>
                         <div className="flex flex-col mt-2 p-2">

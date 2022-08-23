@@ -23,7 +23,6 @@ const ProductImage = ({ images }) => {
           layout="responsive"
           className="object-cover"
           alt=""
-          loading="eager"
           priority
         />
       </div>
@@ -44,7 +43,6 @@ const ProductImage = ({ images }) => {
                 layout="responsive"
                 className="object-cover rounded-xl"
                 alt=""
-                loading="eager"
               />
             </div>
           );

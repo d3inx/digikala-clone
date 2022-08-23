@@ -36,7 +36,6 @@ const FreshOffer = ({ offer }) => {
                     layout="fill"
                     alt={item.title}
                     className="rounded-full"
-                    loading='eager'
                   />
                   <span className="bg-rose-600 absolute bottom-0 right-0 flex items-center rounded-full px-2 text-xs text-white font-bold">
                     {item.discountPercent}٪

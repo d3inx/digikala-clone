@@ -19,7 +19,6 @@ const ResultProducts = ({ products }) => {
                   blurDataURL={item.image}
                   layout="responsive"
                   alt={item.title}
-                  loading="eager"
                 />
               </div>
               <p className="text-sm h-10 mt-4 line-clamp-2">{item.title}</p>

@@ -52,7 +52,6 @@ const RecommendationsProduct = ({ product }) => {
                     height={110}
                     layout="responsive"
                     className=""
-                    loading="eager"
                   />
                   <p className="text-sm line-clamp-2">{item.title}</p>
                   <p className="text-sm lg:text-base text-left pt-4 font-bold">

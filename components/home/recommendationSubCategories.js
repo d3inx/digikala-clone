@@ -19,7 +19,6 @@ const RecommendationSubCategories = ({ categories }) => {
                     width={100}
                     height={100}
                     layout="responsive"
-                    loading='eager'
                   />
                 </div>
                 <p className="text-sm text-center truncate mt-4">

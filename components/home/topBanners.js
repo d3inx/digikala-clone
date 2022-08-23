@@ -19,7 +19,6 @@ const TopBanners = ({topBanners}) => {
                 alt={item.title}
                 layout="responsive"
                 className="rounded-lg xl:rounded-3xl"
-                loading='eager'
               />
             </div>
           );
