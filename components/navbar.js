@@ -13,6 +13,9 @@ const Navbar = () => {
   const router = useRouter();
 
   const handleSubmit = (e) => {
+    if (inputValue === '') {
+      return
+    }
     e.preventDefault();
     router.push(`/search/?q=${inputValue}`);
     setInputValue("");

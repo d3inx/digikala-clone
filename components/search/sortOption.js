@@ -10,7 +10,7 @@ const SortOption = ({ option, query }) => {
       <p>مرتب سازی:</p>
       {option.map((item) => {
         return (
-          <Link href={`/search/?q=${query.q}&sort=${item.id}`} key={item.id}>
+          <Link href={query.q !== undefined ? `/search/?q=${query.q}&sort=${item.id}` : `/search/?sort=${item.id}` } key={item.id}>
             <div
               className={`font-light px-4 cursor-pointer ${
                 query.sort == item.id ? "text-rose-500" : "text-gray-400"

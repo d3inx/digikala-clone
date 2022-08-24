@@ -64,7 +64,14 @@ const Product = ({ filteredData }) => {
 
 export default Product;
 
-export async function getServerSideProps({ params }) {
+export async function getStaticPaths() {
+  return {
+    paths: [],
+    fallback: 'blocking',
+  }
+}
+
+export async function getStaticProps({ params }) {
   const data = await fetch(
     `https://api.digikala.com/v1/product/${params.productId.substring(4)}/`
   ).then((res) => res.json());
