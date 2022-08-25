@@ -7,14 +7,7 @@ const ChildProductCategory = ({ filteredData, query }) => {
 
 export default ChildProductCategory;
 
-export async function getStaticPaths() {
-  return {
-    paths: [],
-    fallback: 'blocking',
-  }
-}
-
-export async function getStaticProps({ params, query }) {
+export async function getServerSideProps({ params, query }) {
   const fetchQuery = Object.keys(query)
     .map((item, index) => {
       return `${item}=${query[item]}`;
