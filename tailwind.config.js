@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        'Vazir': ['Vazirmatn RD', 'sans-serif'],
+        'Vazir': ['Vazirmatn', 'sans-serif'],
       },
     }
   },

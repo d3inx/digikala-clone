@@ -1,10 +1,8 @@
-
-
 import Image from "next/image";
 
 import { ChevronLeftIcon } from "@heroicons/react/outline";
 
-const ReviewSection = ({ item , show , setShow }) => {
+const ReviewSection = ({ item, show, setShow }) => {
   return (
     <div className="flex flex-wrap w-full my-8 pb-8 border-b-4 ">
       <div className="w-full">
@@ -29,20 +27,37 @@ const ReviewSection = ({ item , show , setShow }) => {
                 className="w-full flex flex-wrap justify-center my-8 pb-8"
               >
                 <div className="w-full lg:w-4/5">
-                  <Image
-                    src={section.image}
-                    width={800}
-                    height={500}
-                    layout="responsive"
-                    alt=""
-                    className="object-cover"
-                  />
+                  <div className="relative">
+                    <Image
+                      src={section.image}
+                      width={800}
+                      height={500}
+                      layout="responsive"
+                      alt=""
+                      className="object-cover z-50"
+                    />
+                    <div className="absolute top-0 w-full h-full">
+                      <Image
+                        src="/img/picture-bg.jpg"
+                        alt=""
+                        width={800}
+                        height={500}
+                        className="rounded-xl"
+                        layout="responsive"
+                        objectFit="cover"
+                        priority
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             );
           } else if (section.template === "text-image") {
             return (
-              <div key={section.text} className="w-full flex flex-wrap my-8 pb-8">
+              <div
+                key={section.text}
+                className="w-full flex flex-wrap my-8 pb-8"
+              >
                 <div className="w-full lg:w-3/4">
                   <p
                     className="text-xs lg:text-sm leading-loose mt-4"
@@ -50,29 +65,60 @@ const ReviewSection = ({ item , show , setShow }) => {
                   />
                 </div>
                 <div className="w-full lg:w-1/4">
-                  <Image
-                    src={section.image}
-                    width={800}
-                    height={500}
-                    layout="responsive"
-                    alt=""
-                    className="object-cover"
-                  />
+                <div className="relative">
+                    <Image
+                      src={section.image}
+                      width={800}
+                      height={500}
+                      layout="responsive"
+                      alt=""
+                      className="object-cover z-50"
+                    />
+                    <div className="absolute top-0 w-full h-full">
+                      <Image
+                        src="/img/picture-bg.jpg"
+                        alt=""
+                        width={800}
+                        height={500}
+                        className="rounded-xl"
+                        layout="responsive"
+                        objectFit="cover"
+                        priority
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             );
           } else if (section.template === "image-text") {
             return (
-              <div key={section.text} className="w-full flex flex-wrap my-8 pb-8">
+              <div
+                key={section.text}
+                className="w-full flex flex-wrap my-8 pb-8"
+              >
                 <div className="w-full lg:w-1/4">
-                  <Image
-                    src={section.image}
-                    width={800}
-                    height={500}
-                    layout="responsive"
-                    alt=""
-                    className="object-cover"
-                  />
+                <div className="relative">
+                    <Image
+                      src={section.image}
+                      width={800}
+                      height={500}
+                      layout="responsive"
+                      alt=""
+                      className="object-cover z-50"
+                    />
+                    <div className="absolute top-0 w-full h-full">
+                      <Image
+                        src="/img/picture-bg.jpg"
+                        alt=""
+                        width={800}
+                        height={500}
+                        className="rounded-xl"
+                        layout="responsive"
+                        objectFit="cover"
+                        priority
+                      />
+                    </div>
+                  </div>
                 </div>
                 <div className="w-full lg:w-3/4">
                   <p

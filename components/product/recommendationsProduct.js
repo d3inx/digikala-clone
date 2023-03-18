@@ -45,17 +45,31 @@ const RecommendationsProduct = ({ product }) => {
             >
               <Link href={item.url}>
                 <a>
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    width={110}
-                    height={110}
-                    layout="responsive"
-                    className=""
-                  />
-                  <p className="text-sm line-clamp-2">{item.title}</p>
+                  <div className="relative">
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      width={110}
+                      height={110}
+                      layout="responsive"
+                      className="z-50"
+                    />
+                    <div className="absolute top-0 w-full h-full">
+                      <Image
+                        src="/img/picture-bg.jpg"
+                        alt=""
+                        width={100}
+                        height={100}
+                        className="rounded-xl"
+                        layout="responsive"
+                        objectFit="cover"
+                        priority
+                      />
+                    </div>
+                  </div>
+                  <p className="text-sm line-clamp-2 mt-4">{item.title}</p>
                   <p className="text-sm lg:text-base text-left pt-4 font-bold">
-                    {item.price.toLocaleString() + " ریال"}
+                    {item.price.toLocaleString("fa-IR") + " ریال"}
                   </p>
                 </a>
               </Link>

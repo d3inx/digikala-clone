@@ -5,11 +5,11 @@ import SortOption from "../../components/search/sortOption";
 import SearchData from "../../filter_data/searchData";
 
 const Search = ({ filteredData, query }) => {
+  console.log(filteredData.products);
   return (
     <div className="xl:container xl:mx-auto px-4 mt-4">
       <div>
         <SortOption option={filteredData.sortOptions} query={query} />
-        <ResultProducts products={filteredData.products} />
         <PaginatedItems
           itemsPerPage={20}
           totalPages={filteredData.totalPages}

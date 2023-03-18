@@ -40,9 +40,9 @@ const homeData = (
             title: item.title_fa,
             url: item.url.uri,
             image: item.images.main.url[0],
-            sellingPrice: item.default_variant.price.selling_price,
-            discountPercent: item.default_variant.price.discount_percent,
-            rrpPrice: item.default_variant.price.rrp_price,
+            sellingPrice: item.default_variant.price?.selling_price,
+            discountPercent: item.default_variant.price?.discount_percent,
+            rrpPrice: item.default_variant.price?.rrp_price,
           };
         }),
       ],
@@ -53,7 +53,7 @@ const homeData = (
             title: item.title_fa,
             url: item.url.uri,
             image: item.images.main.url[0],
-            discountPercent: item.default_variant.price.discount_percent,
+            discountPercent: item.default_variant.price?.discount_percent,
           };
         }),
       ],
@@ -71,8 +71,8 @@ const homeData = (
           return {
             id: item.id,
             title: item.title_fa,
-            image: item.logo.webp_url[0] || item.logo.url[0],
-            url: item.url.uri,
+            image: item.logo?.webp_url[0] || item.logo?.url[0],
+            url: item.url?.uri,
           };
         }),
       ],
@@ -90,8 +90,8 @@ const homeData = (
           return {
             id: item.id,
             title: item.title_fa,
-            url: item.url.uri,
-            image: item.top_product_image,
+            url: item.url?.uri,
+            image: item?.top_product_image,
           };
         }),
       ],
@@ -109,7 +109,7 @@ const homeData = (
           return {
             id: item.id,
             title: item.title_fa,
-            image: item.logo.url[0],
+            image: item.logo?.url[0],
           };
         }),
       ],
@@ -118,8 +118,8 @@ const homeData = (
           return {
             id: item.id,
             title: item.title_fa,
-            url: item.url.uri,
-            image: item.images.main.url[0],
+            url: item.url?.uri,
+            image: item.images.main?.url[0],
           };
         }),
       ],
@@ -128,8 +128,8 @@ const homeData = (
           return {
             id: item.id,
             title: item.title_fa,
-            url: item.url.uri,
-            image: item.images.main.url[0],
+            url: item.url?.uri,
+            image: item.images.main?.url[0],
           };
         }),
       ],
@@ -138,11 +138,11 @@ const homeData = (
           return {
             id: item.id,
             title: item.title_fa,
-            url: item.url.uri,
-            image: item.images.main.url[0],
-            sellingPrice: item.default_variant.price.selling_price,
-            discountPercent: item.default_variant.price.discount_percent,
-            rrpPrice: item.default_variant.price.rrp_price,
+            url: item.url?.uri,
+            image: item.images.main?.url[0],
+            sellingPrice: item.default_variant.price?.selling_price,
+            discountPercent: item.default_variant.price?.discount_percent,
+            rrpPrice: item.default_variant.price?.rrp_price,
           };
         }),
       ]

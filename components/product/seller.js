@@ -32,11 +32,11 @@ const Seller = ({ sellers }) => {
                   <div className="flex items-center">
                     {seller.discountPercent > 0 && (
                       <span className="text-gray-500 text-xs line-through">
-                        {seller.rrpPrice.toLocaleString() + " ریال"}
+                        {seller.rrpPrice.toLocaleString("fa-IR") + " ریال"}
                       </span>
                     )}
                     <p className="text-xl font-bold px-2">
-                      {seller.sellingPrice.toLocaleString() + " ریال"}
+                      {seller.sellingPrice.toLocaleString("fa-IR") + " ریال"}
                     </p>
                     {seller.discountPercent > 0 && (
                       <span className="bg-rose-600 flex items-center rounded-full px-2 py-1 mr-2 text-xs text-white font-bold">

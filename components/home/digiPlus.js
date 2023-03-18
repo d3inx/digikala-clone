@@ -17,14 +17,12 @@ const DigiPlus = ({product}) => {
           width={128}
           height={32}
           alt="digiplus"
-          loading='eager'
         />
         <Image
           src={"https://www.digikala.com/statics/img/png/digiplus/plus-widget.png"}
           layout='fill'
           alt="digiplus"
           quality={50}
-          loading='eager'
           objectFit="cover"
         />
         <div className="text-white">خدمات ویژه برای اعضای دیجی&zwnj;پلاس</div>
@@ -34,16 +32,26 @@ const DigiPlus = ({product}) => {
           return (
             <Link href={item.url} key={item.id}>
               <a className="w-1/3 md:w-1/6">
-                <div className="p-4">
+                <div className="relative m-4">
                   <Image
                     src={item.image}
-                    alt={item.title}
-                    placeholder="blur"
-                    blurDataURL={item.image}                    
-                    width={300}
-                    height={300}
+                    alt={item.title}                  
+                    width={100}
+                    height={100}
                     layout="responsive"
+                    className="z-50"
                   />
+                  <div className="absolute top-0 w-full h-full">
+                    <Image
+                      src="/img/picture-bg.jpg"
+                      alt=""
+                      width={100}
+                      height={100}
+                      layout="responsive"
+                      objectFit="cover"
+                      priority
+                    />
+                  </div>
                 </div>
               </a>
             </Link>

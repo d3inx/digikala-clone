@@ -10,16 +10,28 @@ const ResultProducts = ({ products }) => {
         return (
           <Link href={item.url} key={item.id}>
             <a className="w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 p-4 hover:shadow-xl cursor-pointer">
-              <div className="w-full p-4">
-                <Image
-                  src={item.image}
-                  width={300}
-                  height={300}
-                  placeholder="blur"
-                  blurDataURL={item.image}
-                  layout="responsive"
-                  alt={item.title}
-                />
+              <div className="w-full">
+                <div className="relative m-4">
+                  <Image
+                    src={item.image}
+                    width={300}
+                    height={300}
+                    layout="responsive"
+                    className="z-50"
+                    alt={item.title}
+                  />
+                  <div className="absolute top-0 left-0 right-0 w-full h-full">
+                    <Image
+                      src="/img/picture-bg.jpg"
+                      alt=""
+                      width={100}
+                      height={100}
+                      layout="responsive"
+                      objectFit="cover"
+                      priority
+                    />
+                  </div>
+                </div>
               </div>
               <p className="text-sm h-10 mt-4 line-clamp-2">{item.title}</p>
               {item.rating.count > 0 && (
@@ -32,12 +44,11 @@ const ResultProducts = ({ products }) => {
                 <div className="flex flex-row-reverse justify-between">
                   <div className="flex flex-col items-end">
                     <p className="text-sm font-bold">
-                      {item.sellingPrice.toLocaleString()}{" "}
-                      ریال
+                      {item.sellingPrice.toLocaleString("fa-IR")} ریال
                     </p>
                     {item.discountPercent > 0 && (
                       <p className="text-xs text-gray-400 line-through mt-4">
-                        {item.rrpPrice.toLocaleString()}
+                        {item.rrpPrice.toLocaleString("fa-IR")}
                       </p>
                     )}
                   </div>

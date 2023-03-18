@@ -44,7 +44,7 @@ export default function Home({ filteredData }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const data = await fetch("https://api.digikala.com/v1/").then((res) =>
     res.json()
   );

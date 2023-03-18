@@ -26,7 +26,7 @@ const Header = ({sliderItem}) => {
       }}
       navigation={true}
       modules={[Autoplay, Pagination, Navigation]}
-      className="mySwiper rounded-3xl mt-8"
+      className="mySwiper mt-8"
     >
         {sliderItem?.map((item) => {
             return (

@@ -20,7 +20,7 @@ const IncredibleProducts = ({ suggestedProducts, image, color }) => {
               src={"https://www.digikala.com/statics/img/svg/amazing-typo.svg"}
               width={77}
               height={77}
-              loading='eager'
+              loading="eager"
               alt="شگفت انگیز"
             />
             <Image src={image} width={115} height={115} alt="شگفت انگیز" />
@@ -63,16 +63,27 @@ const IncredibleProducts = ({ suggestedProducts, image, color }) => {
                           <Image
                             src={item.image}
                             alt={item.title_fa}
-                            placeholder="blur"
-                            blurDataURL={item.image}
-                            layout='fill'
+                            layout="fill"
+                            className="z-50"
                             objectFit="cover"
                           />
+                          <div className="absolute top-0 w-full h-full">
+                            <Image
+                              src="/img/picture-bg.jpg"
+                              alt=""
+                              width={100}
+                              height={100}
+                              layout="responsive"
+                              objectFit="cover"
+                              priority
+                            />
+                          </div>
                         </div>
                         <div className="flex flex-col mt-2 p-2">
                           <div className="flex justify-between">
                             <p className="text-neutral-700 font-bold">
-                              {item.sellingPrice.toLocaleString() + " ریال"}
+                              {item.sellingPrice.toLocaleString("fa-IR") +
+                                " ریال"}
                             </p>
                             <span className="bg-rose-600 flex items-center rounded-full px-2 text-xs text-white font-bold">
                               {item.discountPercent}٪

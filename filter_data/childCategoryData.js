@@ -24,11 +24,11 @@ const ChildCategoryData = (
           return {
             id: item.id,
             title: item.title_fa,
-            url: item.url.uri,
-            image: item.images.main.url[0],
-            sellingPrice: item.default_variant.price.selling_price,
-            discountPercent: item.default_variant.price.discount_percent,
-            rrpPrice: item.default_variant.price.rrp_price,
+            url: item.url?.uri,
+            image: item.images.main?.url[0],
+            sellingPrice: item.default_variant.price?.selling_price,
+            discountPercent: item.default_variant.price?.discount_percent,
+            rrpPrice: item.default_variant.price?.rrp_price,
           };
         }),
       ],
@@ -37,8 +37,8 @@ const ChildCategoryData = (
           return {
             id: item.id,
             title: item.title_fa,
-            image: item.top_product_image,
-            url: item.url.uri,
+            image: item?.top_product_image,
+            url: item.url?.uri,
           };
         }),
       ],
@@ -56,8 +56,8 @@ const ChildCategoryData = (
           return {
             id: item.id,
             title: item.title_fa,
-            url: item.url.uri,
-            image: item.top_product_image,
+            url: item.url?.uri,
+            image: item?.top_product_image,
           };
         }),
       ],
@@ -75,8 +75,8 @@ const ChildCategoryData = (
           return {
             id: item.id,
             title: item.title_fa,
-            url: item.url.uri,
-            image: item.images.main.url[0],
+            url: item.url?.uri,
+            image: item.images.main?.url[0],
           };
         }),
       ],
@@ -85,7 +85,7 @@ const ChildCategoryData = (
           return {
             id: item.id,
             title: item.title_fa,
-            image: item.logo.url[0],
+            image: item.logo?.url[0],
           };
         }),
       ],
@@ -95,11 +95,11 @@ const ChildCategoryData = (
           return {
             id: item.id,
             title: item.title_fa,
-            url: item.url.uri,
-            image: item.images.main.url[0],
-            sellingPrice: item.default_variant.price.selling_price,
-            discountPercent: item.default_variant.price.discount_percent,
-            rrpPrice: item.default_variant.price.rrp_price,
+            url: item.url?.uri,
+            image: item.images.main?.url[0],
+            sellingPrice: item.default_variant.price?.selling_price,
+            discountPercent: item.default_variant.price?.discount_percent,
+            rrpPrice: item.default_variant.price?.rrp_price,
           };
         }),
       ]

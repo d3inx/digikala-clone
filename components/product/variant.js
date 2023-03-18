@@ -47,7 +47,7 @@ const Variant = ({ default_variant, status }) => {
               {default_variant.defaultVariant.discountPercent > 0 && (
                 <div className="flex justify-end">
                   <span className="text-gray-500 text-xs line-through">
-                    {default_variant.defaultVariant.rrpPrice.toLocaleString() + " ریال"}
+                    {default_variant.defaultVariant.rrpPrice.toLocaleString("fa-IR") + " ریال"}
                   </span>
                   <span className="bg-rose-600 flex items-center rounded-full px-2 mr-2 text-xs text-white font-bold">
                     {default_variant.defaultVariant.discountPercent}٪
@@ -55,7 +55,7 @@ const Variant = ({ default_variant, status }) => {
                 </div>
               )}
               <p className="pt-4 font-bold">
-                {default_variant.defaultVariant.sellingPrice.toLocaleString() + " ریال"}
+                {default_variant.defaultVariant.sellingPrice.toLocaleString("fa-IR") + " ریال"}
               </p>
             </div>
             <button className="w-full text-sm bg-rose-500 text-white rounded-lg py-3">

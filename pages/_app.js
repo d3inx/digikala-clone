@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import "./../node_modules/vazirmatn/Round-Dots/Vazirmatn-RD-font-face.css";
+import "./../node_modules/vazirmatn/Vazirmatn-font-face.css"
 import Navbar from "../components/navbar";
 
 function MyApp({ Component, pageProps }) {

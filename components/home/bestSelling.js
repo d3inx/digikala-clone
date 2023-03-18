@@ -14,11 +14,23 @@ const BestSelling = ({ products }) => {
                   <Image
                     src={item.image}
                     alt={item.title_fa}
-                    placeholder="blur"
-                    blurDataURL={item.image}
-                    layout='fill'
+                    width={100}
+                    height={100}
+                    layout='responsive'
                     objectFit="contain"
+                    className="z-50"
                   />
+                  <div className="absolute top-0 w-full h-full">
+                    <Image
+                      src="/img/picture-bg.jpg"
+                      alt=""
+                      width={100}
+                      height={100}
+                      layout="responsive"
+                      objectFit="cover"
+                      priority
+                    />
+                  </div>
                 </div>
                 <span className="text-xl text-cyan-500 font-bold px-4">
                   {index + 1}

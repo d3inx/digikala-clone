@@ -8,14 +8,12 @@ const MiddleBanners = ({banners}) => {
     <div className="flex flex-wrap mt-8">
         {banners?.map((item) => {
             return (
-                <div key={item.id} className="w-1/2 p-4">
+                <div key={item.title} className="w-1/2 p-4">
                     <Image
                         
                         src={item.image}
                         width={828}
                         height={328}
-                        placeholder="blur"
-                        blurDataURL={item.image}
                         layout="responsive"
                         alt={item.title}
                         className="rounded-lg xl:rounded-3xl"

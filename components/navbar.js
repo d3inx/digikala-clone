@@ -13,8 +13,8 @@ const Navbar = () => {
   const router = useRouter();
 
   const handleSubmit = (e) => {
-    if (inputValue === '') {
-      return
+    if (inputValue === "") {
+      return;
     }
     e.preventDefault();
     router.push(`/search/?q=${inputValue}`);
@@ -26,17 +26,18 @@ const Navbar = () => {
       <div className="container mx-auto">
         <div className="flex flex-col items-start py-4 space-y-4">
           <div className="flex flex-col lg:flex-row w-full">
-            <Link href={"/"}>
-              <Image
-                src="https://www.digikala.com/statics/img/svg/logo.svg"
-                width={115}
-                height={35}
-                quality={25}
-                loading="eager"
-                alt="digikala"
-                className="cursor-pointer"
-                priority
-              />
+            <Link href="/">
+              <a>
+                <Image
+                  src="https://www.digikala.com/statics/img/svg/logo.svg"
+                  width={115}
+                  height={35}
+                  quality={25}
+                  alt="digikala"
+                  className="cursor-pointer"
+                  priority
+                />
+              </a>
             </Link>
             <form
               onSubmit={handleSubmit}

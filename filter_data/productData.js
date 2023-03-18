@@ -62,17 +62,17 @@ const productData = (
     },
     variant: {
       defaultVariant: {
-        sellerName: default_variant.seller.title,
+        sellerName: default_variant.seller?.title,
         rate: default_variant.rate,
-        warranty: default_variant.warranty.title_fa,
+        warranty: default_variant.warranty?.title_fa,
         shipmentMethodsDescription:
-          default_variant.shipment_methods.description,
+          default_variant.shipment_methods?.description,
         shipmentMethodsProvidersTitle:
-          default_variant.shipment_methods.providers[0].title,
-        digiclubPoint: default_variant.digiclub.point,
-        discountPercent: default_variant.price.discount_percent,
-        rrpPrice: default_variant.price.rrp_price,
-        sellingPrice: default_variant.price.selling_price,
+          default_variant.shipment_methods?.providers[0].title,
+        digiclubPoint: default_variant.digiclub?.point,
+        discountPercent: default_variant.price?.discount_percent,
+        rrpPrice: default_variant.price?.rrp_price,
+        sellingPrice: default_variant.price?.selling_price,
       },
       status: status,
     },
@@ -88,10 +88,10 @@ const productData = (
               };
             }),
           ],
-          warranty: item.warranty.title_fa,
-          discountPercent: item.price.discount_percent,
-          rrpPrice: item.price.rrp_price,
-          sellingPrice: item.price.selling_price,
+          warranty: item.warranty?.title_fa,
+          discountPercent: item.price?.discount_percent,
+          rrpPrice: item.price?.rrp_price,
+          sellingPrice: item.price?.selling_price,
         };
       }),
     ],
@@ -99,10 +99,10 @@ const productData = (
       ...related_products?.map((item) => {
         return {
           id: item.id,
-          url: item.url.uri,
-          image: item.images.main.url[0],
-          title: item.title_fa,
-          price: item.default_variant.price.selling_price,
+          url: item.url?.uri,
+          image: item?.images.main.url[0],
+          title: item?.title_fa,
+          price: item.default_variant.price?.selling_price,
         };
       }),
     ],
@@ -113,15 +113,15 @@ const productData = (
       ...last_comments?.map((item) => {
         return {
           id: item.id,
-          rate: item.rate,
-          title: item.title,
-          userName: item.user_name,
-          createdAt: item.created_at,
-          body: item.body,
-          advantages: item.advantages,
-          disadvantages: item.disadvantages,
-          likes: item.reactions.likes,
-          dislikes: item.reactions.dislikes,
+          rate: item?.rate,
+          title: item?.title,
+          userName: item?.user_name,
+          createdAt: item?.created_at,
+          body: item?.body,
+          advantages: item?.advantages,
+          disadvantages: item?.disadvantages,
+          likes: item.reactions?.likes,
+          dislikes: item.reactions?.dislikes,
         };
       }),
     ],
