@@ -71,7 +71,7 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const data = await fetch(
     `https://api.digikala.com/v1/product/${params.productId.substring(4)}/`
   ).then((res) => res.json());
