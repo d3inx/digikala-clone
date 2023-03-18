@@ -64,12 +64,6 @@ const Product = ({ filteredData }) => {
 
 export default Product;
 
-export async function getStaticPaths() {
-  return {
-    paths: [],
-    fallback: 'blocking',
-  }
-}
 
 export async function getServerSideProps({ params }) {
   const data = await fetch(
