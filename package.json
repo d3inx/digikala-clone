@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "analyze": "cross-env ANALYZE=true next build",
     "lint": "next lint"
   },
   "dependencies": {
@@ -20,7 +21,9 @@
     "vazirmatn": "^33.0.3"
   },
   "devDependencies": {
+    "@next/bundle-analyzer": "^13.2.4",
     "autoprefixer": "^10.4.7",
+    "cross-env": "^7.0.3",
     "eslint": "8.19.0",
     "eslint-config-next": "12.2.0",
     "postcss": "^8.4.14",

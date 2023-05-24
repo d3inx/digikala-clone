@@ -1,8 +1,8 @@
-const SearchData = (sort_options, products, total_pages) => {
+const SearchData = (data) => {
   return {
-    sortOptions: sort_options,
+    sortOptions: data?.sort_options,
     products: [
-      ...products.map((item) => {
+      ...data?.products.map((item) => {
         return {
           id: item?.id,
           url: item?.url.uri,
@@ -16,7 +16,7 @@ const SearchData = (sort_options, products, total_pages) => {
         };
       }),
     ],
-    totalPages: total_pages
+    totalPages: data?.total_pages
   };
 };
 

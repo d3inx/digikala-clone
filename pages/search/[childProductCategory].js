@@ -27,9 +27,7 @@ export async function getServerSideProps({ params, query }) {
   }
 
   const filteredData = SearchData(
-    data.data.sort_options,
-    data.data.products,
-    data.data.pager.total_pages,
+    data.data,
   );
 
   return {

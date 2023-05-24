@@ -12,22 +12,26 @@ import Header from "./../../components/home/header";
 const categoryPage = ({ filteredData }) => {
   return (
     <div className="xl:container xl:mx-auto px-4 xl:px-28">
-        <Header sliderItem={filteredData.slider_banners} />
-        <IncredibleProducts
-          suggestedProducts={filteredData.incredible_offers}
-          image={
-            "https://www.digikala.com/statics/img/png/specialCarousel/Electronics.png"
-          }
-          color={"bg-indigo-600"}
-        />
-        <MainCategories categories={filteredData.sub_categories} />
-        <MiddleBanners banners={filteredData.middle_banners} />
-        <RecommendationSubCategories categories={filteredData.recommendation_sub_categories} />
-        <TopBanners topBanners={filteredData.top_banners} />
-        <BestSelling products={filteredData.best_selling_products} />
-        <SellingAndSalesProducts products={filteredData.top_repurchased_products} />
-        <PopularBrands brands={filteredData.popular_brands} />
-      </div>
+      <Header sliderItem={filteredData.slider_banners} />
+      <IncredibleProducts
+        suggestedProducts={filteredData.incredible_offers}
+        image={
+          "https://www.digikala.com/statics/img/png/specialCarousel/Electronics.png"
+        }
+        color={"bg-indigo-600"}
+      />
+      <MainCategories categories={filteredData.sub_categories} />
+      <MiddleBanners banners={filteredData.middle_banners} />
+      <RecommendationSubCategories
+        categories={filteredData.recommendation_sub_categories}
+      />
+      <TopBanners topBanners={filteredData.top_banners} />
+      <BestSelling products={filteredData.best_selling_products} />
+      <SellingAndSalesProducts
+        products={filteredData.top_repurchased_products}
+      />
+      <PopularBrands brands={filteredData.popular_brands} />
+    </div>
   );
 };
 
@@ -38,25 +42,25 @@ export async function getServerSideProps({ params }) {
     `https://api.digikala.com/v1/categories/${params.categoryName}/`
   );
   const data = await res.json();
-
+  
   if (data.status === 404) {
     return {
       notFound: true,
     };
+  };
+  if (data.status === 301) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: data.redirect_url.uri
+      }
+    }
   }
-   const filteredData = ChildCategoryData(
-    data.data.slider_banners,
-    data.data.incredible_offers.products,
-    data.data.sub_categories,
-    data.data.middle_banners,
-    data.data.recommendation_sub_categories,
-    data.data.top_banners,
-    data.data.best_selling_products.products,
-    data.data.top_repurchased_products.products,
-    data.data.popular_brands.brands,
+  const dataArray = Object.entries(data.data);
+  console.log(dataArray);
+  const filteredData = ChildCategoryData(
+    dataArray,
   );
-
-  
 
   return {
     props: { filteredData },

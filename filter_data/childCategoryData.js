@@ -1,17 +1,9 @@
 const ChildCategoryData = (
-  slider_banners,
-  incredible_offers,
-  sub_categories,
-  middle_banners,
-  recommendation_sub_categories,
-  top_banners,
-  best_selling_products,
-  top_repurchased_products,
-  popular_brands,
+  data,
 ) =>  {
   return {
     slider_banners: [
-        ...slider_banners?.map((item) => {
+        ...data?.slider_banners.map((item) => {
           return {
             id: item.id,
             image: item.image,
@@ -20,7 +12,7 @@ const ChildCategoryData = (
         }),
       ],
       incredible_offers: [
-        ...incredible_offers?.map((item) => {
+        ...data.incredible_offers.products?.map((item) => {
           return {
             id: item.id,
             title: item.title_fa,
@@ -33,7 +25,7 @@ const ChildCategoryData = (
         }),
       ],
       sub_categories: [
-        ...sub_categories?.map((item) => {
+        ...data.sub_categories?.map((item) => {
           return {
             id: item.id,
             title: item.title_fa,
@@ -43,7 +35,7 @@ const ChildCategoryData = (
         }),
       ],
       middle_banners: [
-        ...middle_banners?.map((item) => {
+        ...data.middle_banners?.map((item) => {
           return {
             id: item.id,
             image: item.image,
@@ -52,7 +44,7 @@ const ChildCategoryData = (
         }),
       ],
       recommendation_sub_categories: [
-        ...recommendation_sub_categories?.map((item) => {
+        ...data.recommendation_sub_categories?.map((item) => {
           return {
             id: item.id,
             title: item.title_fa,
@@ -62,7 +54,7 @@ const ChildCategoryData = (
         }),
       ],
       top_banners: [
-        ...top_banners?.map((item) => {
+        ...data.top_banners?.map((item) => {
           return {
             id: item.id,
             image: item.image,
@@ -71,7 +63,7 @@ const ChildCategoryData = (
         }),
       ],
       best_selling_products: [
-        ...best_selling_products?.map((item) => {
+        ...data.best_selling_products.products?.map((item) => {
           return {
             id: item.id,
             title: item.title_fa,
@@ -81,7 +73,7 @@ const ChildCategoryData = (
         }),
       ],
       popular_brands: [
-        ...popular_brands?.map((item) => {
+        ...data.popular_brands.brands?.map((item) => {
           return {
             id: item.id,
             title: item.title_fa,
@@ -91,7 +83,7 @@ const ChildCategoryData = (
       ],
       
       top_repurchased_products: [
-        ...top_repurchased_products?.map((item) => {
+        ...data.top_repurchased_products.products?.map((item) => {
           return {
             id: item.id,
             title: item.title_fa,
