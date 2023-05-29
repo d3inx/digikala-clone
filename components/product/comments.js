@@ -1,12 +1,20 @@
-import { MinusSmIcon, PlusSmIcon, ThumbDownIcon, ThumbUpIcon } from "@heroicons/react/outline";
-import React from "react";
+import React, { useContext } from "react";
 
-const Comments = ({ data }) => {
+import { MinusSmIcon, PlusSmIcon, ThumbDownIcon, ThumbUpIcon } from "@heroicons/react/outline";
+
+import { ProductContext } from "../../pages/product/[productId]/[productName]";
+
+const Comments = () => {
+
+  const data = useContext(ProductContext);
+  const {lastComments} = data;
+
   return (
     <div className="w-full lg:w-4/5 py-8 border-b-4">
       <h1 className="pb-2 text-sm lg:text-base font-bold">امتیاز و دیدگاه کاربران</h1>
       <div className="bg-rose-500 w-20 h-[2px]"></div>
-      {data.map((data) => {
+      {lastComments.map((data) => {
+        
         return (
           <div
             key={data.id}

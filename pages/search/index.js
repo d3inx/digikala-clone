@@ -1,23 +1,24 @@
-import React from "react";
+import React, { createContext } from "react";
 import { PaginatedItems } from "../../components/search/pagination";
 import ResultProducts from "../../components/search/resultProducts";
 import SortOption from "../../components/search/sortOption";
 import SearchData from "../../filter_data/searchData";
 
+export const SearchContext = createContext();
+
 const Search = ({ filteredData, query }) => {
-  console.log(filteredData.products);
   return (
-    <div className="xl:container xl:mx-auto px-4 mt-4">
-      <div>
-        <SortOption option={filteredData.sortOptions} query={query} />
-        <PaginatedItems
-          itemsPerPage={20}
-          totalPages={filteredData.totalPages}
-          products={filteredData.products}
-          className="container"
-        />
+    <SearchContext.Provider value={filteredData}>
+      <div className="xl:container xl:mx-auto px-4 mt-4">
+        <div>
+          <SortOption query={query} />
+          <PaginatedItems
+            itemsPerPage={20}
+            className="container"
+          />
+        </div>
       </div>
-    </div>
+    </SearchContext.Provider>
   );
 };
 
@@ -36,11 +37,10 @@ export async function getServerSideProps({ query }) {
       `https://api.digikala.com/v1/search/?${fetchQuery}`
     ).then((res) => res.json());
   } else {
-    result = await fetch(
-      `https://api.digikala.com/v1/search/`
-    ).then((res) => res.json());
+    result = await fetch(`https://api.digikala.com/v1/search/`).then((res) =>
+      res.json()
+    );
   }
-
   const filteredData = SearchData(
     result.data.sort_options,
     result.data.products,
@@ -48,6 +48,6 @@ export async function getServerSideProps({ query }) {
   );
 
   return {
-    props: { filteredData , query },
+    props: { filteredData, query },
   };
 }

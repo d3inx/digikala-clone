@@ -1,14 +1,19 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 
 import { useRouter } from "next/router";
 
 import ReactPaginate from "react-paginate";
 
 import ResultProducts from "./resultProducts";
+import { SearchContext } from "../../pages/search";
 
 // Example items, to simulate fetching from another resources.
 
-export function PaginatedItems({ itemsPerPage, totalPages, products }) {
+export function PaginatedItems({ itemsPerPage}) {
+
+  const data = useContext(SearchContext);
+  const {totalPages,products} = data;
+
   // We start with an empty list of items.
   const [currentItems, setCurrentItems] = useState(null);
   // Here we use item offsets; we could also use page offsets
@@ -17,11 +22,7 @@ export function PaginatedItems({ itemsPerPage, totalPages, products }) {
 
   const router = useRouter();
 
-  // useEffect(() => {
-  //   // Fetch items from another resources.
-  //   const endOffset = itemOffset + itemsPerPage;
-  //   setCurrentItems(products.slice(itemOffset, endOffset));
-  // }, [itemOffset, itemsPerPage]);
+  
   
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {

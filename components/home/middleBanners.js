@@ -1,12 +1,20 @@
 import Image from "next/image";
+import { useContext } from "react";
+
+import { DataContext } from "../../pages";
 
 
 
 
-const MiddleBanners = ({banners}) => {
+const MiddleBanners = () => {
+  
+
+  const data = useContext(DataContext);
+  const {middle_banners} = data;
+
   return (
     <div className="flex flex-wrap mt-8">
-        {banners?.map((item) => {
+        {middle_banners?.map((item) => {
             return (
                 <div key={item.title} className="w-1/2 p-4">
                     <Image

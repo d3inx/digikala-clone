@@ -1,4 +1,7 @@
+import { useContext } from "react";
 import Image from "next/image";
+
+import { ProductContext } from "../../pages/product/[productId]/[productName]";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,7 +14,11 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper";
 import Link from "next/link";
 
-const RecommendationsProduct = ({ product }) => {
+const RecommendationsProduct = () => {
+
+  const data = useContext(ProductContext);
+  const {recommendationProduct} = data;
+  
   return (
     <div className="py-4 lg:py-0 lg:p-4 border-[.5px] rounded-lg">
       <h1 className="pb-2 font-bold">کالاهای مشابه</h1>
@@ -37,7 +44,7 @@ const RecommendationsProduct = ({ product }) => {
         modules={[Navigation]}
         className="mySwiper"
       >
-        {product?.map((item) => {
+        {recommendationProduct?.map((item) => {
           return (
             <SwiperSlide
               key={item.id}

@@ -1,21 +1,22 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+
+import { ProductContext } from "../../pages/product/[productId]/[productName]";
 
 import { StarIcon } from "@heroicons/react/solid";
 import { InformationCircleIcon, ThumbUpIcon } from "@heroicons/react/outline";
 
 import Image from "next/image";
 
-const InfoSection = ({
-  title_fa,
-  title_en,
-  rating,
-  suggestion,
-  colors,
-  review,
-  content_description,
-  digiplus,
-}) => {
+const InfoSection = () => {
+  
+  const data = useContext(ProductContext);
+  const {infoSection} = data;
+  const {title_fa,title_en,rating,suggestion,colors,review,contentDescription,digiplus} = infoSection;
+  
+  console.log(colors );
+
   const [selectedColor, setSelectedColor] = useState(colors[0]?.color);
+  
   return (
     <div className="w-full lg:w-2/5 lg:px-4 mt-4 lg:mt-0">
       <h1 className="text-base lg:text-xl font-bold mb-4 lg:mb-0">
@@ -45,7 +46,7 @@ const InfoSection = ({
           </p>
         </div>
       )}
-      {colors[0] && (
+      {colors && (
         <div>
           <p className="text-sm lg:text-lg font-bold">رنگ : {selectedColor}</p>
           <div className="flex my-4">
@@ -69,15 +70,15 @@ const InfoSection = ({
       {review && (
         <ul className="list-disc">
           <p className="text-sm lg:text-lg font-bold mt-8">ویژگی&zwnj;ها</p>
-          {review.map((review) => {
+          {review?.map((review) => {
             return (
-              <li key={review.title} className="flex items-center my-4">
+              <li key={review?.title} className="flex items-center my-4">
                 <p className="text-sm lg:text-base text-gray-500">
-                  {review.title} :
+                  {review?.title} :
                 </p>
                 <p className="text-xs lg:text-sm font-bold mr-2">
-                  {review.values.map((item, index) =>
-                    index !== review.values.length - 1 ? `${item} ,` : item
+                  {review?.values.map((item, index) =>
+                    index !== review?.values.length - 1 ? `${item} ,` : item
                   )}
                 </p>
               </li>
@@ -90,7 +91,7 @@ const InfoSection = ({
           <InformationCircleIcon className="w-5 h-5 text-gray-500" />
         </div>
         <p className="text-xs font-light text-gray-500">
-          {content_description}
+          {contentDescription}
         </p>
       </div>
       <div className="flex justify-between items-center bg-white mt-8 p-4 border-[.5px] rounded-xl">

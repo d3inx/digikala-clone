@@ -7,18 +7,18 @@ import { Navigation } from "swiper";
 import Link from "next/link";
 import { useContext } from "react";
 
-import { DataContext } from "../../pages";
+import { MainContext } from "../../pages/main/[categoryName]";
 
 import "swiper/css";
 import "swiper/css/navigation";
 
-const IncredibleProducts = ({ image, color }) => {
-  const data = useContext(DataContext);
-  const {incredible_products} = data;
+const IncredibleOffers = ({ image, color }) => {
+  const data = useContext(MainContext);
+  const {incredible_offers} = data;
 
   return (
     <>
-      {incredible_products && incredible_products.length > 0 && (
+      {incredible_offers && incredible_offers.length > 0 && (
         <div
           className={`flex flex-wrap md:rounded-3xl w-full py-4 my-4 ${color}`}
         >
@@ -58,7 +58,7 @@ const IncredibleProducts = ({ image, color }) => {
               modules={[Navigation]}
               className="mySwiper h-full rounded-r-2xl"
             >
-              {incredible_products?.map((item) => {
+              {incredible_offers?.map((item) => {
                 return (
                   <SwiperSlide
                     className=" flex flex-col w-full h-full bg-white"
@@ -113,4 +113,4 @@ const IncredibleProducts = ({ image, color }) => {
   );
 };
 
-export default IncredibleProducts;
+export default IncredibleOffers;

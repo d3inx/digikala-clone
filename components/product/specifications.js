@@ -1,17 +1,23 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 import { ChevronLeftIcon } from "@heroicons/react/outline";
-import SpecificationSection from "./specificationSection";
 
-const Specifications = ({attributes}) => {
+import SpecificationSection from "./specificationSection";
+import { ProductContext } from "../../pages/product/[productId]/[productName]";
+
+const Specifications = () => {
   const [show, setShow] = useState(false);
+
+  const data = useContext(ProductContext);
+  const {specifications} = data;
+
   return (
     <div className="w-full lg:w-4/5 py-8 border-b-4">
       <h1 className="pb-2 text-sm lg:text-base font-bold">مشخصات</h1>
       <div className="bg-rose-500 w-20 h-[2px]"></div>
       <div>
       {show
-        ? attributes.map((data) => {
+        ? specifications.map((data) => {
             return (
               <SpecificationSection
                 key={data.title}
@@ -20,7 +26,7 @@ const Specifications = ({attributes}) => {
               />
             );
           })
-        : attributes.slice(0, 5).map((data) => {
+        : specifications.slice(0, 5).map((data) => {
             return (
               <SpecificationSection
                 key={data.title}

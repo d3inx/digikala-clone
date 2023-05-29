@@ -1,4 +1,5 @@
 import dynamic from "next/dynamic";
+import { createContext } from "react";
 
 import Breadcrumb from "../../../components/product/breadcrumb";
 import InfoSection from "../../../components/product/infoSection";
@@ -19,76 +20,47 @@ const Specifications = dynamic(() =>
 
 const Comments = dynamic(() => import("../../../components/product/comments"));
 
+export const ProductContext = createContext();
+
 const Product = ({ filteredData }) => {
   return (
-    <div className="xl:container xl:mx-auto px-4 mt-4">
-      <Breadcrumb data={filteredData.breadcrumb} />
-      <div className="flex flex-wrap w-full my-8 pb-8 border-b-4 ">
-        <ProductImage images={filteredData.images} />
-        <InfoSection
-          title_fa={filteredData.infoSection.title_fa}
-          title_en={filteredData.infoSection.title_en}
-          rating={filteredData.infoSection.rating}
-          suggestion={filteredData.infoSection.suggestion}
-          colors={filteredData.infoSection.colors}
-          review={filteredData.infoSection.review}
-          content_description={filteredData.infoSection.contentDescription}
-          digiplus={filteredData.infoSection.digiplus}
-        />
-        <Variant
-          default_variant={filteredData.variant}
-          status={filteredData.variant.status}
-        />
+    <ProductContext.Provider value={filteredData}>
+      <div className="xl:container xl:mx-auto px-4 mt-4">
+        <Breadcrumb />
+        <div className="flex flex-wrap w-full my-8 pb-8 border-b-4 ">
+          <ProductImage />
+          <InfoSection />
+          <Variant />
+        </div>
+        <Seller />
+        <RecommendationsProduct />
+        {filteredData.introduction !== "" && (
+          <Introduction />
+        )}
+        {filteredData.review[0] !== undefined && (
+          <Review  />
+        )}
+        {filteredData.specifications[0] !== undefined && (
+          <Specifications  />
+        )}
+        {filteredData.lastComments[0] !== undefined && (
+          <Comments data={filteredData.lastComments} />
+        )}
       </div>
-      <Seller sellers={filteredData.sellers} />
-      <RecommendationsProduct
-        product={filteredData.recommendationProduct}
-      />
-      {filteredData.introduction !== "" && (
-        <Introduction data={filteredData.introduction} />
-      )}
-      {filteredData.review[0] !== undefined && (
-        <Review data={filteredData.review} />
-      )}
-      {filteredData.specifications[0] !== undefined && (
-        <Specifications
-          attributes={filteredData.specifications}
-        />
-      )}
-      {filteredData.lastComments[0] !== undefined && (
-        <Comments data={filteredData.lastComments} />
-      )}
-    </div>
+    </ProductContext.Provider>
   );
 };
 
 export default Product;
 
-
 export async function getServerSideProps({ params }) {
+  console.log(params.productId.substring(4));
   const data = await fetch(
     `https://api.digikala.com/v1/product/${params.productId.substring(4)}/`
   ).then((res) => res.json());
-
+    console.log(data.data.product.breadcrumb);
   const filteredData = productData(
-    data.data.product.breadcrumb,
-    data.data.product.images,
-    data.data.product.title_fa,
-    data.data.product.title_en,
-    data.data.product.rating,
-    data.data.product.suggestion,
-    data.data.product.colors,
-    data.data.product.review.attributes,
-    data.data.product.category.content_description,
-    data.data.product.digiplus.services,
-    data.data.product.default_variant,
-    data.data.product.status,
-    data.data.product.variants,
-    data.data.recommendations.related_products.products,
-    data.data.product.expert_reviews.description,
-    data.data.product.expert_reviews.review_sections,
-    data.data.product.specifications[0].attributes,
-    data.data.product.last_comments
+    data.data
   );
 
   return {

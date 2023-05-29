@@ -1,3 +1,5 @@
+import { createContext } from "react";
+
 import Header from "../components/home/header";
 import DeepLinks from "../components/home/deepLinks";
 import IncredibleProducts from "../components/home/incredibleProducts";
@@ -12,35 +14,32 @@ import SellingAndSalesProducts from "../components/home/sellingAndSalesProducts"
 import FreshOffer from "../components/home/freshOffer";
 import homeData from "../filter_data/homeData";
 
+export const DataContext = createContext();
+
 export default function Home({ filteredData }) {
   return (
-    <>
-      <Header sliderItem={filteredData.header_banners} />
+    <DataContext.Provider value={filteredData}>
+      <Header />
       <div className="xl:container xl:mx-auto px-4 xl:px-28">
-        <DeepLinks links={filteredData.deep_links} />
+        <DeepLinks />
         <IncredibleProducts
-          suggestedProducts={filteredData.incredible_products}
           image={
             "https://www.digikala.com/statics/img/png/specialCarousel/General.png"
           }
           color={"bg-rose-600"}
         />
-        <FreshOffer offer={filteredData.fresh_incredible_products} />
-        <TopBanners topBanners={filteredData.top_banners} />
-        <MainCategories categories={filteredData.main_categories} />
-        <MiddleBanners banners={filteredData.middle_banners} />
-        <RecommendationSubCategories
-          categories={filteredData.recommendation_sub_categories}
-        />
-        <PopularBrands brands={filteredData.popular_brands} />
-        <MiddleBanners banners={filteredData.middle_banners_third} />
-        <DigiPlus product={filteredData.digiplus} />
-        <BestSelling products={filteredData.best_selling_products} />
-        <SellingAndSalesProducts
-          products={filteredData.selling_and_sales_products}
-        />
+        <FreshOffer />
+        <TopBanners />
+        <MainCategories />
+        <MiddleBanners />
+        <RecommendationSubCategories />
+        <PopularBrands />
+        <MiddleBanners />
+        <DigiPlus />
+        <BestSelling />
+        <SellingAndSalesProducts />
       </div>
-    </>
+    </DataContext.Provider>
   );
 }
 
@@ -48,8 +47,9 @@ export async function getServerSideProps() {
   const data = await fetch("https://api.digikala.com/v1/").then((res) =>
     res.json()
   );
-  
+
   const filteredData = homeData(
+    data.data,
     data.data.header_banners,
     data.data.deep_links,
     data.data.incredible_products.products,
@@ -65,7 +65,6 @@ export async function getServerSideProps() {
     data.data.selling_and_sales_products.products
   );
 
-  
   return {
     props: { filteredData },
   };

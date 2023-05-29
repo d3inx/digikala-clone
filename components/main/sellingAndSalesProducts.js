@@ -2,11 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useContext } from "react";
 
-import { DataContext } from "../../pages";
+import { MainContext } from "../../pages/main/[categoryName]";
 
 const SellingAndSalesProducts = () => {
 
-  const data = useContext(DataContext);
+  const data = useContext(MainContext);
   const {selling_and_sales_products} = data;
 
   return (

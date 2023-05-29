@@ -1,16 +1,19 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useContext } from "react";
+
+import { DataContext } from "../../pages";
 
 
-const DigiPlus = ({product}) => {
+const DigiPlus = () => {
+
+  const data = useContext(DataContext);
+  const {digiplus} = data;
+
   return (
     <div className="flex flex-wrap bg-fuchsia-700 rounded-3xl p-4 md:p-8 mt-8">
       <div
         className="relative w-full md:w-1/3 bg-center bg-cover h-96 md:h-auto"
-        // style={{
-        //   backgroundImage:
-        //     "url('https://www.digikala.com/statics/img/png/digiplus/plus-widget.png')",
-        // }}
       >
         <Image
           src={"https://www.digikala.com/statics/img/svg/digiplus-logo.svg"}
@@ -28,7 +31,7 @@ const DigiPlus = ({product}) => {
         <div className="text-white">خدمات ویژه برای اعضای دیجی&zwnj;پلاس</div>
       </div>
       <div className="flex flex-row flex-wrap w-full md:w-2/3 bg-white rounded-lg md:rounded-2xl">
-        {product?.map((item) => {
+        {digiplus?.map((item) => {
           return (
             <Link href={item.url} key={item.id}>
               <a className="w-1/3 md:w-1/6">

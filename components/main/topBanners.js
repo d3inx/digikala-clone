@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { useContext } from "react";
 
-import { DataContext } from "../../pages";
+import { MainContext } from "../../pages/main/[categoryName]";
 
 const TopBanners = () => {
   
-  const data = useContext(DataContext);
+  const data = useContext(MainContext);
   const {top_banners} = data;
   
   return (

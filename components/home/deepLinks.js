@@ -1,9 +1,16 @@
+import { useContext } from "react";
 import Image from "next/image";
 
-const DeepLinks = ({ links }) => {
+import { DataContext } from "../../pages";
+
+const DeepLinks = () => {
+
+  const data = useContext(DataContext);
+  const {deep_links} = data;
+
   return (
     <div className="flex flex-wrap mt-8">
-      {links?.map((item) => {
+      {deep_links?.map((item) => {
         return (
           <div
             key={item.id}

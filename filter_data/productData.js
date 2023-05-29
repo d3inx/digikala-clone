@@ -1,32 +1,36 @@
-const productData = (
-  breadcrumb,
-  images,
-  title_fa,
-  title_en,
-  rating,
-  suggestion,
-  colors,
-  review,
-  content_description,
-  digiplus,
-  default_variant,
-  status,
-  sellers,
-  related_products,
-  expert_reviews_description,
-  expert_reviews_review_sections,
-  specifications_attributes,
-  last_comments
-) => {
+const productData = (data) => {
+  const { product } = data;
+  const {
+    breadcrumb,
+    images,
+    title_fa,
+    title_en,
+    rating,
+    suggestion,
+    colors,
+    review,
+    category,
+    digiplus,
+    default_variant,
+    status,
+    variants,
+    expert_reviews,
+    last_comments,
+  } = product;
+
   return {
-    breadcrumb: [
-      ...breadcrumb?.map((item) => {
-        return {
-          title: item.title,
-          url: item.url.uri,
-        };
-      }),
-    ],
+    breadcrumb: 
+
+      breadcrumb != null || undefined
+      ? [
+        ...breadcrumb?.map((item) => {
+          return {
+            title: item.title,
+            url: item.url.uri,
+          };
+        }),
+      ]
+      : null,
     images: {
       mainImage: images.main.url[0],
       list: images.list.map((item) => {
@@ -40,25 +44,32 @@ const productData = (
       title_en: title_en,
       rating: rating,
       suggestion: suggestion,
-      colors: [
-        ...colors?.map((item) => {
-          return {
-            id: item.id,
-            color: item.title,
-            hexCode: item.hex_code,
-          };
-        }),
-      ],
-      review: [
-        ...review?.map((item) => {
-          return {
-            title: item.title,
-            values: item.values
-          };
-        }),
-      ],
-      contentDescription: content_description,
-      digiplus
+      colors:
+        colors != null || undefined 
+          ? [
+              ...colors?.map((item) => {
+                return {
+                  id: item.id,
+                  color: item.title,
+                  hexCode: item.hex_code,
+                };
+              }),
+          ]
+          : null,
+
+      review:
+        review.attributes != null || undefined
+          ? [
+              ...review.attributes?.map((item) => {
+                return {
+                  title: item.title,
+                  values: item.values,
+                };
+              }),
+            ]
+          : null,
+      contentDescription: category.content_description,
+      digiplus: digiplus.services,
     },
     variant: {
       defaultVariant: {
@@ -76,55 +87,66 @@ const productData = (
       },
       status: status,
     },
-    sellers: [
-      ...sellers?.slice(0, 3).map((item) => {
-        return {
-          id: item.id,
-          sellerName: item.seller.title,
-          shipmentMethodsProviders: [
-            ...item.shipment_methods.providers.map((item) => {
+    sellers:
+      variants != null || undefined
+        ? [
+            ...variants?.slice(0, 3).map((item) => {
               return {
-                title: item.title,
+                id: item.id,
+                sellerName: item.seller.title,
+                shipmentMethodsProviders: [
+                  ...item.shipment_methods.providers.map((item) => {
+                    return {
+                      title: item.title,
+                    };
+                  }),
+                ],
+                warranty: item.warranty?.title_fa,
+                discountPercent: item.price?.discount_percent,
+                rrpPrice: item.price?.rrp_price,
+                sellingPrice: item.price?.selling_price,
               };
             }),
-          ],
-          warranty: item.warranty?.title_fa,
-          discountPercent: item.price?.discount_percent,
-          rrpPrice: item.price?.rrp_price,
-          sellingPrice: item.price?.selling_price,
-        };
-      }),
-    ],
-    recommendationProduct: [
-      ...related_products?.map((item) => {
-        return {
-          id: item.id,
-          url: item.url?.uri,
-          image: item?.images.main.url[0],
-          title: item?.title_fa,
-          price: item.default_variant.price?.selling_price,
-        };
-      }),
-    ],
-    introduction: expert_reviews_description,
-    review: expert_reviews_review_sections,
-    specifications: specifications_attributes,
-    lastComments: [
-      ...last_comments?.map((item) => {
-        return {
-          id: item.id,
-          rate: item?.rate,
-          title: item?.title,
-          userName: item?.user_name,
-          createdAt: item?.created_at,
-          body: item?.body,
-          advantages: item?.advantages,
-          disadvantages: item?.disadvantages,
-          likes: item.reactions?.likes,
-          dislikes: item.reactions?.dislikes,
-        };
-      }),
-    ],
+          ]
+        : null,
+    recommendationProduct:
+      data.recommendations.related_products.products != null || undefined
+        ? [
+            ...data.recommendations.related_products.products?.map((item) => {
+              return {
+                id: item.id,
+                url: item.url?.uri,
+                image: item?.images.main.url[0],
+                title: item?.title_fa,
+                price: item.default_variant.price?.selling_price,
+              };
+            }),
+        ]
+        : null,
+
+    introduction: expert_reviews.description,
+    review: expert_reviews.review_sections,
+    specifications: data.product.specifications[0].attributes,
+    lastComments:
+
+      last_comments != null || undefined
+      ? [
+        ...last_comments?.map((item) => {
+          return {
+            id: item.id,
+            rate: item?.rate,
+            title: item?.title,
+            userName: item?.user_name,
+            createdAt: item?.created_at,
+            body: item?.body,
+            advantages: item?.advantages,
+            disadvantages: item?.disadvantages,
+            likes: item.reactions?.likes,
+            dislikes: item.reactions?.dislikes,
+          };
+        }),
+      ]
+      : null,
   };
 };
 

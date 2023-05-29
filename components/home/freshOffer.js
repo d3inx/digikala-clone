@@ -1,9 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useContext } from "react";
 
 import { ArrowLeftIcon } from "@heroicons/react/outline";
 
-const FreshOffer = ({ offer }) => {
+import { DataContext } from "../../pages";
+
+const FreshOffer = () => {
+
+  const data = useContext(DataContext);
+  const {fresh_incredible_products} = data;
+
   return (
     <div className="w-full flex flex-col md:flex-row rounded-3xl bg-green-100 shadow p-4 mt-4">
       <div className="flex items-center justify-evenly md:w-2/5">
@@ -11,20 +18,20 @@ const FreshOffer = ({ offer }) => {
           src={"https://www.digikala.com/statics/img/png/amazing/fresh.png"}
           width={66}
           height={66}
-          alt={offer?.title}
+          alt={fresh_incredible_products?.title}
         />
         <Image
           src={"https://www.digikala.com/statics/img/svg/typography/fresh.svg"}
           width={250}
           height={28}
-          alt={offer?.title}
+          alt={fresh_incredible_products?.title}
         />
         <span className="bg-green-600 h-8 hidden md:flex items-center rounded-full px-4 text-white text-sm font-bold">
           تا ۴۳٪ تخفیف
         </span>
       </div>
       <div className="flex flex-wrap justify-center items-center w-full md:w-3/5 ">
-        {offer?.map((item) => {
+        {fresh_incredible_products?.map((item) => {
           return (
             <Link href={item.url} key={item.id}>
               <a className="flex flex-col my-4 px-2 space-y-2">

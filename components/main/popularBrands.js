@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useContext } from "react";
 
-import { DataContext } from "../../pages";
+import { MainContext } from "../../pages/main/[categoryName]";
 
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -17,7 +17,7 @@ import { Navigation } from "swiper";
 
 const PopularBrands = () => {
 
-  const data = useContext(DataContext);
+  const data = useContext(MainContext);
   const {popular_brands} = data;
 
   return (

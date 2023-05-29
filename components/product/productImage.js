@@ -1,8 +1,13 @@
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
-const ProductImage = ({ images }) => {
+import { ProductContext } from "../../pages/product/[productId]/[productName]";
+
+const ProductImage = () => {
   const [mainImage, setMainImage] = useState();
+
+  const data = useContext(ProductContext);
+  const {images} = data;
 
   useEffect(() => {
     setMainImage(images.mainImage);

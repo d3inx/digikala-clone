@@ -1,6 +1,14 @@
+import { useContext } from "react";
+
 import { ShieldCheckIcon } from "@heroicons/react/outline";
 
-const Seller = ({ sellers }) => {
+import { ProductContext } from "../../pages/product/[productId]/[productName]";
+
+const Seller = () => {
+
+  const data = useContext(ProductContext);
+  const {sellers} = data;
+
   return (
     <div className="hidden lg:block">
       <h1 className="pb-2 font-bold">فروشندگان این کالا</h1>

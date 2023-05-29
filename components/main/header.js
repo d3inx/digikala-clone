@@ -6,7 +6,7 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 // Import Swiper styles
 import { useContext } from "react";
 
-import { DataContext } from "../../pages";
+import { MainContext } from "../../pages/main/[categoryName]";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -16,8 +16,8 @@ import "swiper/css/navigation";
 
 const Header = () => {
   
-  const data = useContext(DataContext);
-  const {header_banners} = data;
+  const data = useContext(MainContext);
+  const {slider_banners} = data;
 
   return (
     <Swiper
@@ -34,7 +34,7 @@ const Header = () => {
       modules={[Autoplay, Pagination, Navigation]}
       className="mySwiper mt-8"
     >
-        {header_banners?.map((item) => {
+        {slider_banners?.map((item) => {
             return (
                 <SwiperSlide className="w-full aspect-[4/2] lg:aspect-[4/1]" key={item.id}>
                     <Image  src={item.image} alt={item.title} layout='fill' className='object-cover' priority />
