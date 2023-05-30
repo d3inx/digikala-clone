@@ -1,6 +1,5 @@
 import React, { createContext } from "react";
 import { PaginatedItems } from "../../components/search/pagination";
-import ResultProducts from "../../components/search/resultProducts";
 import SortOption from "../../components/search/sortOption";
 import SearchData from "../../filter_data/searchData";
 

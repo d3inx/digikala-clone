@@ -110,7 +110,7 @@ const productData = (data) => {
           ]
         : null,
     recommendationProduct:
-      data.recommendations.related_products.products != null || undefined
+      data.recommendations.related_products != null || undefined
         ? [
             ...data.recommendations.related_products.products?.map((item) => {
               return {

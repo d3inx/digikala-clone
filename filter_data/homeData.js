@@ -43,7 +43,7 @@ const homeData = (data) => {
         : null,
 
     incredible_products:
-      incredible_products.products != null || undefined
+      incredible_products != null || undefined
         ? [
             ...incredible_products.products?.map((item) => {
               return {
@@ -59,7 +59,7 @@ const homeData = (data) => {
           ]
         : null,
     fresh_incredible_products:
-      fresh_incredible_products.products != null || undefined
+      fresh_incredible_products != null || undefined
         ? [
             ...fresh_incredible_products.products?.slice(0, 3).map((item) => {
               return {
@@ -147,7 +147,7 @@ const homeData = (data) => {
           ]
         : null,
     digiplus:
-      digiplus.jet_delivery_products.products != null || undefined
+      digiplus.jet_delivery_products != null || undefined
         ? [
             ...digiplus.jet_delivery_products.products?.map((item) => {
               return {
@@ -160,7 +160,7 @@ const homeData = (data) => {
           ]
         : null,
     best_selling_products:
-      best_selling_products.products != null || undefined
+      best_selling_products != null || undefined
         ? [
             ...best_selling_products.products?.map((item) => {
               return {
@@ -173,7 +173,7 @@ const homeData = (data) => {
           ]
         : null,
     selling_and_sales_products:
-      selling_and_sales_products.products != null || undefined
+      selling_and_sales_products != null || undefined
         ? [
             ...selling_and_sales_products.products?.map((item) => {
               return {

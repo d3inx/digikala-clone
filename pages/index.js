@@ -50,19 +50,6 @@ export async function getServerSideProps() {
 
   const filteredData = homeData(
     data.data,
-    data.data.header_banners,
-    data.data.deep_links,
-    data.data.incredible_products.products,
-    data.data.fresh_incredible_products.products,
-    data.data.top_banners,
-    data.data.main_categories.categories,
-    data.data.middle_banners,
-    data.data.recommendation_sub_categories,
-    data.data.middle_banners_third,
-    data.data.popular_brands.brands,
-    data.data.digiplus.jet_delivery_products.products,
-    data.data.best_selling_products.products,
-    data.data.selling_and_sales_products.products
   );
 
   return {
